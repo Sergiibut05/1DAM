@@ -1,0 +1,43 @@
+USUARIOS Y PERMISOS
+	useradd*
+	usermod*
+	userdel*
+	chmod*
+	passwd*
+	
+	groupadd*
+	groupmod*
+	groupdel*
+	chown*
+		
+	/etc/passwd
+	/etc/shadow
+	/etc/group
+
+FICHEROS
+	pwd*
+	mkdir*
+	cd*
+	rm*
+	nano
+	ls*
+	cat
+	head
+	tail
+	more
+	les
+	cut
+	egrep
+	sort
+	cp*
+	mv*
+
+OTROS
+	date
+	ncal
+	who
+	whoami
+	history
+	man
+	uname
+	apropos

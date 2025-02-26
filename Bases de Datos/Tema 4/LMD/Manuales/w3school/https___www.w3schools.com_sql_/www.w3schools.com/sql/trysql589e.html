@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<!-- Mirrored from www.w3schools.com/sql/trysql.asp?filename=trysql_shippers by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 08 Feb 2025 10:00:29 GMT -->
+<head>
+<title>SQL Tryit Editor v1.6</title>
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" href="../lib/fonts/fontawesome8deb.woff2?14663396" as="font" type="font/woff2" crossorigin> 
+<link rel="preload" href="../lib/fonts/source-code-pro-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+<link rel="stylesheet" href="../lib/w3schools32.css">
+<link rel="stylesheet" href="../lib/codemirror.css">
+<script src="../lib/codemirror.js"></script>
+<script src="../lib/codemirror_sql.js"></script>
+<script src="../w3Database.js"></script>
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KTCFC3S');
+
+var subjectFolder = location.pathname;
+subjectFolder = subjectFolder.replace("https://www.w3schools.com/", "");
+if (subjectFolder.startsWith("python/index.html") == true ) {
+  if (subjectFolder.includes("https://www.w3schools.com/numpy/") == true ) {
+    subjectFolder = "numpy/index.html"
+  } else if (subjectFolder.includes("https://www.w3schools.com/pandas/") == true ) {
+      subjectFolder = "pandas/index.html"
+  } else if (subjectFolder.includes("https://www.w3schools.com/scipy/") == true ) {
+      subjectFolder = "scipy/index.html"
+  }
+}
+subjectFolder = subjectFolder.substr(0, subjectFolder.indexOf("https://www.w3schools.com/"));
+</script>
+<!-- End Google Tag Manager -->
+<script src="../lib/uic3447.js?v=1.0.5"></script>
+<script src="../lib/uic_prove209.js?v=1.0.0"></script>
+<script data-cfasync="false" type="text/javascript">
+uic_prov_pre("tryitdb");
+</script>
+<style>
+html {
+  overflow-y:scroll;
+}
+#tryitLeaderboard {
+    margin-top:5px;
+    margin-bottom:5px;    
+    text-align:center;
+    height:90px;
+}
+
+#resultSQL {
+    font-size:14px;
+    font-family:Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+    background-color:#E7E9EB;
+    height:auto;
+    width:auto;
+}
+#iframeResultSQL {
+    display:none;
+    background-color: #ffffff;
+    height:95%;
+    min-height:400px;
+    top:25px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    border:none;
+}
+#divResultSQL {
+    background-color: #ffffff;
+    border:1px solid #d3d3d3;
+    border:none;
+    overflow:auto;
+}
+#textareaCodeSQL {
+    font-size:15px;
+    font-family:Consolas,"courier new";
+    height:140px;
+    width:100%;
+    border:1px solid #d3d3d3;
+    resize: none;
+}
+.CodeMirror.cm-s-default {
+  height:140px;
+}
+#footerSQL {
+    height:20px;
+    font-family:verdana;
+}
+#dbInfo {
+    height:auto;
+    xxcolor:#222222;
+    font-family:verdana;
+    font-size:12px;
+    text-align:center;
+    max-width:300px;
+    margin:auto;
+    position:relative;
+}
+#getwebsitebtn {
+  background-color:#04AA6D;
+  font-family: 'Source Sans Pro', sans-serif;  
+  color: white;
+  font-size: 18px;
+  padding:6px 15px;
+  margin-top:4px;
+  margin-right: 10px;
+  display: block;
+  float: right;
+  border-radius: 5px;
+  top: -15px;
+  position: relative;
+}
+#getwebsitebtn:hover {
+  background-color: #059862 !important;
+  color:white!important;
+}
+
+@media (max-width:992px){
+  #dbInfo {
+    width:auto;
+    position:static;
+  }
+}
+.chromesupport,.iesupport,.safarisupport,.firefoxsupport,.operasupport {
+	width:20px; height:20px; float:left; margin-left:15px;background-repeat:no-repeat;
+}
+.iesupport		{background-image:url('../images/compatible_edge2020.gif');}
+.chromesupport	{background-image:url('../images/compatible_chrome2020.gif');}
+.firefoxsupport	{background-image:url('../images/incompatible_firefox2020.gif');}
+.safarisupport	{background-image:url('../images/compatible_safari2020.gif');}
+.operasupport	{background-image:url('../images/compatible_opera2020.gif');}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTCFC3S"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+(
+function setThemeMode() {
+  var x = localStorage.getItem("preferredmode");
+  if (x == "dark") {
+    document.body.className += " darktheme darkpagetheme";
+  }
+})();
+</script>
+
+
+	<h3>
+	<img border="0" src="../images/stop.gif" align="absmiddle" width="32" height="32">
+	The file you asked for does not exist
+	</h3>
+	

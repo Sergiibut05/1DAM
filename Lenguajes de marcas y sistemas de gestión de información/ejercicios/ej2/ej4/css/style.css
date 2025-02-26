@@ -1,0 +1,47 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Título principal */
+h1 {
+    color: red;
+    text-align: left;
+}
+
+/* Estilos para los títulos de los trabajadores */
+h2 {
+    background-color: gray;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para las secciones de datos */
+div {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: black;
+}
+
+.tr1 {
+    border: 2px solid black;
+    color: black;
+}
+
+.ti1 {
+    color: blue;
+}
+
+.tr2 {
+    border: 2px solid black;
+    color: black;
+}
+
+.ti2 {
+    color: green;
+}

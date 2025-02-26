@@ -1,0 +1,5 @@
+1. Sumar los n primeros números
+2. Sumar desde x hasta y
+3. Visualizar la tabla de multiplicar de x
+4. Visualizar los n primeros números pares
+5. Visualizar los n primeros números de Fibonacci

@@ -1,0 +1,53 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+h2 {
+    font-size: 16px;
+    color: #666;
+}
+
+th {
+    color: white;
+    background-color: #646464;
+    font-size: 16px;
+}
+
+a {
+    font-size: 16px;
+    color: blue;
+}
+
+p, li, td{
+    font-size: 16px;
+    color: #000;
+}
+
+caption {
+    font-size: 14px;
+    color: #000;
+}
+/*Todos los elementos hasta ahora se corresponden al formato indicado en la tabla del documento proporcionado por el profesor.
+A partir de aquí, todos los elementos los pondré yo para dar el formato correcto al documento.*/
+table, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;  
+}
+
+td, th {
+    padding: 10px;
+}
+
+.pietabla {
+    background-color: #c6c6c6;
+}
+
+.imgqueen {
+    width: 400px;
+    height: 200px;
+}

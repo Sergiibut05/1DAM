@@ -1,0 +1,40 @@
+  /* Todos los elementos de la página */
+  *{
+    font: 1em/1.3 Arial, Helvetica, sans-serif;
+}
+
+/* Todos los parrafos de la página */
+    p{
+    color: #555;
+}
+
+/* Todos los párrafos contenidos en #primero */
+    #primero p{
+    color: #336699;
+}
+
+/* Todos los enlaces la página */
+    a{
+    color: #cc3300;
+}
+
+/* Los elementos "em" contenidos en #primero */
+    #primero em{
+    background: #ffffcc;
+    padding: 0.1em;
+}
+
+/* Todos los elementos "em" de clase "especial" en toda la página */
+    em.especial{
+    background: #ffcc99;
+    border: 1px solid #ff9900;
+    padding: 0.1em;
+}
+
+/* Elementos "span" contenidos en .normal */
+    .normal span{
+    font-weight: bold;
+}
+
+/* Esta clase es la excepcion para el ejercicio 3 */
+.excepcion { font-size: 18px; color: #FF0000; } /* Cambia el tamaño de fuente y el color */

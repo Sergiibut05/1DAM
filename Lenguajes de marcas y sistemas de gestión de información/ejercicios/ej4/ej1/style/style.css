@@ -1,0 +1,51 @@
+/* Estilos para el logo */
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #f4f1ed;
+    color: firebrick;
+    border: 2px solid darkgoldenrod;
+    border-radius: 7px;
+    padding: 20px;
+}
+
+form fieldset {
+    border: none;
+}
+
+form legend {
+    color: darkblue;
+    font-weight: bold;
+}
+
+form label, form input, form textarea {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #333;
+    padding: 5px;
+    text-align: center;
+    color: #f7c600;
+}
+
+.imgcpifp{
+    width:300px;
+    height:110px;
+}
+
+.icon{
+    width:48px;
+    height:48px;
+}

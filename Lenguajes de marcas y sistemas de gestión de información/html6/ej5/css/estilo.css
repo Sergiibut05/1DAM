@@ -1,0 +1,37 @@
+nav li{
+    list-style: none;
+    display: inline-block;
+    padding: 4px 70px;
+    text-align: center;
+    background-color: gray;
+}
+
+ul{
+    padding: 0px;
+}
+
+a{
+    color: orange;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a:hover{
+    color: white;
+}
+
+nav{
+    color: silver;
+    font-size: 20px;
+}
+
+nav:hover{
+    cursor:default;
+}
+
+
+
+.contenido{
+    width:1000px;
+    margin:0 auto;
+}

@@ -1,0 +1,7 @@
+Multiplicaciones sin *
+
+cociente sin modulo ni divisiones
+
+resto sin modulo ni divisiones
+
+piramide
