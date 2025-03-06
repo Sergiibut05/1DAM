@@ -29,3 +29,5 @@ let boolean = Boolean(price);
 
 console.log(boolean);
 
+
+
