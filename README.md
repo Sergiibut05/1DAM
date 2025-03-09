@@ -11,7 +11,7 @@ Programación
 Sistemas Informáticos
 Sostenibilidad
 
-Cursos a Estudiar de Openwebinars: typescript, flexbox y css grid, fundamentos de angular, curso de firebase y Angular, Git, docker
+Cursos a Estudiar de Openwebinars: typescript, flexbox y css grid, fundamentos de angular, curso de firebase y Angular, docker
 
 ## Contacto  
 Si quieres contactar conmigo lo puedes hacer aquí:
