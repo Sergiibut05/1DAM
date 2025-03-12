@@ -1,0 +1,30 @@
+.section1 {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+hr {
+    width: 5%; /* Aumenta el ancho de la línea */
+    height: 5px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    border-radius: 4px;
+    margin: auto !important;
+}
+
+.ilustraciones img {
+    width: 100px; /* Ajusta el tamaño de las imágenes */
+    height: auto;
+    margin: 0 auto 20px auto; /* Centra las imágenes y agrega margen inferior */
+}
+
+.titulos h3 {
+    text-align: center; /* Centra el texto */
+    margin-bottom: 10px; /* Agrega margen inferior */
+}
+
+.frases p {
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px; /* Agrega margen inferior */
+}

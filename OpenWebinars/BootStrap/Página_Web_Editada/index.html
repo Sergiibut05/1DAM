@@ -1,0 +1,289 @@
+<!--------------------------------------------------------------------------------->
+<!------Trabajo Hehco por Sergii Butrii 1ºDAM Trabajo Final 1ºTrimestre------------>
+<!--------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titulo y Favicon -->
+    <title>Blender Academy</title>
+    <link rel="icon" type="image/x-icon" href="img/Blendericon.png">
+    <!-- Todos los archivos css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_formulario.css">
+    <link rel="stylesheet" href="css/style_galeria.css">
+    <link rel="stylesheet" href="css/style_header.css">
+    <link rel="stylesheet" href="css/style_section1.css">
+    <link rel="stylesheet" href="css/style_navbar.css">
+    <!-- La fuente de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="node_modules/@popperjs/core/dist/umd/popper-base.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      
+      
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="img/Blendericon.png" alt="Logo Página" width="30" height="30">
+        Blender Academy
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#servicio">Servicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#localizacion">Ubicación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#inscripcion">Contáctanos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="inicio">
+    <div class="video-background"><!-- Video de Fondo de la parte Superior -->
+      <video autoplay muted loop>
+      <source src="img/videoplayback.mp4" type="video/mp4">
+      <!-- Mensaje alternativo si el navegador no soporta video -->
+      Tu navegador no soporta el video de fondo.
+      </video>
+    </div>
+    <div class="inicio"><!-- Mensaje que está encima del Video -->
+      <h1>Tu lugar favorito para aprender Blender de forma gratuita</h1>
+      <div class="boton"><a href="#cabecera">Saber Más</a></div>
+    </div>
+  </div>
+  <header id="cabecera"><!-- La cebecera -->
+    <div class="cabezera">
+      <h2>Domina Blender y da vida a tus ideas en 3D</h2>
+      <hr>
+      <p>Blender es la herramienta definitiva para modelado, animación y diseño 3D. ¡Este curso te guiará desde lo básico hasta la creación de proyectos profesionales!</p>
+      <a href="#servicio">Información</a>
+    </div>
+  </header>
+  <section><!-- Sección donde se informa de la cosas de Curso -->
+    <div class="section1" id="servicio">
+      <h2>A tu servicio</h2>
+      <hr>
+      <p>Blender es la herramienta definitiva para modelado, animación y diseño 3D. ¡Este curso te guiará desde lo básico hasta la creación de proyectos profesionales!</p>
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <img src="img/diamante.png" alt="diamante" class="img-fluid">
+            <h3>Temas sólidos</h3>
+            <p>Los tutoriales están actualizados para que siempre tengas la información más reciente.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <img src="img/pc.png" alt="pc" class="img-fluid">
+            <h3>Hasta la fecha</h3>
+            <p>Todas las herramientas que usamos en el curso están actualizadas para brindarte lo mejor de Blender.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <img src="img/org.png" alt="org" class="img-fluid">
+            <h3>Listo para publicar</h3>
+            <p>Al finalizar el curso, podrás crear proyectos de alta calidad para usar como portafolio.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <img src="img/corazon.png" alt="corazón" class="img-fluid">
+            <h3>Hecho con pasión</h3>
+            <p>Este curso está hecho con dedicación, para que aprendas con facilidad y disfrutes mientras trabajas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="galeria" id="portfolio"><!-- Sección de la Galeria de fotos -->
+    <h2>Muestra de proyectos</h2>
+    <hr>
+    <p>Aquí puedes ver algunos ejemplos de lo que podrás lograr una vez que hayas aprendido a usar Blender. Siéntete libre de explorar y ver el potencial de Blender.</p>
+    <div class="carousel-container">
+      <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/brush_0004.png" class="d-block w-100" alt="brush" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Brush</h5>
+              <p>Un proyecto de pincel en Blender.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/estacion_espacial.png" class="d-block w-100" alt="estacion_espacial" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Estación Espacial</h5>
+              <p>Modelo de una estación espacial.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/iglesia.png" class="d-block w-100" alt="iglesia" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Iglesia</h5>
+              <p>Renderizado de una iglesia.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/m3.png" class="d-block w-100" alt="m3" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>M3</h5>
+              <p>Modelo de un Laptop M3.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/mark_betis.png" class="d-block w-100" alt="minecraft_scene" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Escena de Minecraft</h5>
+              <p>Recreación de una escena de Minecraft.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/ocean_confy.png" class="d-block w-100" alt="ocean" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Océano</h5>
+              <p>Renderizado de un océano.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/salon_chill.png" class="d-block w-100" alt="salon_chill" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Salón Chill</h5>
+              <p>Diseño de un salón chill.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/torre_confy.png" class="d-block w-100" alt="torre_confy" onclick="openFullscreen(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Torre Confy</h5>
+              <p>Renderizado de una torre confy.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <div class="fullscreen-img" id="fullscreenImg">
+    <span class="close-btn" onclick="closeFullscreen()">&times;</span>
+    <img src="" alt="Fullscreen Image">
+  </div>
+  <section class="section2" id="localizacion"><!-- Sección de la ubicación y video -->
+    <div class="cabezera">
+      <h2>¡Encuentranos!</h2>
+      <hr>
+      <p>Comienza a aprender Blender con nuestros tutoriales gratuitos. Sin compromiso, solo pasión por el diseño 3D.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.25035039235!2d-4.557037722860983!3d36.74056147105685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f10963ce0f3d%3A0x310ae7d4bb2e8f7b!2sCPIFP%20Alan%20Turing!5e0!3m2!1ses!2ses!4v1733682925246!5m2!1ses!2ses" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h2>Explora los límites</h2>
+      <p>Aquí podras ver y explorar los límites de este increible motor para Animación y Renderizado 3D</p>
+      <iframe height="450" src="https://www.youtube.com/embed/WhWc3b3KhnY?start=145" 
+        frameborder="0" 
+        allowfullscreen></iframe>
+    </div>
+  </section>
+  <section class="section3" id="inscripcion"><!-- Sección del formulario -->
+    <div class="section1">
+      <h2>Contáctanos</h2>
+      <hr>
+      <p>¿Listo para empezar tu próximo proyecto con nosotros? Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.</p>
+      <div class="formulario">
+        <h3>Formulario de contacto</h3>
+        <form onsubmit="event.preventDefault(); location.reload();">
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="number" placeholder="Número de teléfono" required>
+        <div class="tipradio">
+          <label><input type="radio" name="contacto" required> Llamada</label>
+          <label><input type="radio" name="contacto"> Mensaje</label>
+        </div>
+        <label><input type="checkbox" required> Acepto los términos</label>
+        <textarea placeholder="Escribe tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </div>
+    </div>
+  </section>
+      <!-- Footer -->
+  <footer>
+    <div class="information">
+      <ol>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicio">Servicio</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#localizacion">Ubicación</a></li>
+        <li><a href="#inscripcion">Contáctanos</a></li>
+      </ol>
+    </div>
+    
+      <table class="social-table">
+        <tr>
+          <td>
+            <a href="https://x.com/Blender" target="_blank">
+              <img src="img/x_icon.png" alt="Twitter">
+            </a>
+          </td>
+          <td>
+            <a href="https://www.instagram.com/blender.official/" target="_blank">
+              <img src="img/Instagram_icon.png" alt="Instagram">
+            </a>
+          </td>
+          <td>
+            <a href="https://www.tiktok.com/@eme.blender" target="_blank">
+              <img src="img/Tiktok_icon.png" alt="TikTok">
+            </a>
+          </td>
+        </tr>
+      </table>
+
+
+    <p>&copy; 2024 Blender Academy. Todos los derechos reservados.(Sergii Butrii 1ºDAM)</p>
+  </footer>
+  <script>
+    function openFullscreen(img) {
+      var fullscreenImg = document.getElementById("fullscreenImg");
+      fullscreenImg.style.display = "flex";
+      fullscreenImg.querySelector("img").src = img.src;
+    }
+
+    function closeFullscreen() {
+      var fullscreenImg = document.getElementById("fullscreenImg");
+      fullscreenImg.style.display = "none";
+    }
+  </script>
+</body>
+</html>

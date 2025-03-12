@@ -1,0 +1,14 @@
+{
+  "name": "ejercicio_final_lenguaje_marcas",
+  "version": "1.0.0",
+  "description": "Mi Página Web Como Trabajo Final del Primer Trimestre de Lenguaje de Marcas Link de la Página: https://sergiibut05.github.io/Ejercicio_Final_Lenguaje_Marcas/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}

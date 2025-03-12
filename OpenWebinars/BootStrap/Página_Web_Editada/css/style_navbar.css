@@ -1,0 +1,58 @@
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+    padding: 1rem 2rem; /* Ajusta el padding del navbar */
+      }
+      @media (max-width: 992px) {
+          .navbar-brand {
+              display: flex;
+              justify-content: center;
+              width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+          }
+      }
+      .navbar-custom .navbar-nav .nav-link,
+      .navbar-custom .navbar-brand {
+          color: #ffffff; /* Color claro para las letras */
+          font-family: 'Poppins', sans-serif; /* Fuente de Google Fonts */
+          font-size: 1.2rem; /* Tamaño de letra un poco más grande */
+      }
+
+      .navbar-custom .navbar-nav .nav-link:hover,
+      .navbar-custom .navbar-brand:hover {
+          color: #cccccc; /* Color más claro al pasar el ratón */
+      }
+
+      .navbar-brand img {
+          width: 60px; /* Ajusta el tamaño de la imagen */
+          height: 50px; /* Ajusta el tamaño de la imagen */
+          object-fit: cover; /* Ajusta la imagen manualmente */
+          margin-right: 10px; /* Ajusta el margen derecho */
+      }
+      .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.5) !important; /* Color del borde del botón */
+        border-width: 3px !important;
+    }
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+      .carousel-item img {
+          height: 50%;
+          object-fit: cover;
+          margin: 0 auto;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .carousel-inner {
+          max-width: 60%;
+          margin: auto;
+      }
+      .carousel-caption {
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+          border-radius: 10px;
+      }
+      .collapse navbar-collapse a:hover {
+          color: orange;
+      }
+      .navbar-nav .nav-item a:hover {
+        color: orange !important; /* Cambia este color al que prefieras */
+      }

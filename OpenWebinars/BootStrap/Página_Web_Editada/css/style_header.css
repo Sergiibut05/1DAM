@@ -1,0 +1,46 @@
+header {
+    background-color: orange;
+}
+
+.cabezera {
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 80%; /* Aumenta el ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.cabezera hr {
+    width: 10%; /* Aumenta el ancho de la línea */
+    height: 5px;
+    border: none;
+    background-color: white;
+    border-radius: 4px;
+    margin: 0 auto; /* Centra la línea horizontal */
+}
+
+.cabezera p {
+    padding-bottom: 5%;
+}
+
+.cabezera a {
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 1);
+    width: 250px;
+    height: 70px;
+    border-radius: 15px; /* Bordes redondeados, pero menos exagerados */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efecto suave para fondo y sombra */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra suave debajo del botón */
+    border: none; /* Eliminar cualquier borde visible */
+    font-weight: bold; /* Letra un poco más destacada */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: large;
+    text-decoration: none;
+    display: flex; /* Asegura que el contenido esté centrado */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px 60px;
+    margin: 0 auto; /* Centra el botón */
+}
+
