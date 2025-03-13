@@ -28,3 +28,7 @@ hr {
     text-align: center; /* Centra el texto */
     margin-bottom: 20px; /* Agrega margen inferior */
 }
+
+.container {
+    padding-top: 40px;
+}

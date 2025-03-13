@@ -42,5 +42,6 @@ header {
     justify-content: center; /* Centra horizontalmente */
     padding: 20px 60px;
     margin: 0 auto; /* Centra el botón */
+    transform: translate(0, 80%) !important;
 }
 
