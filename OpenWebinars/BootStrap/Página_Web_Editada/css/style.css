@@ -83,8 +83,7 @@ h1,h2,h3{
   /*Sección 2*/
   .section2{
     background-color: #555;
-    
-    
+
   }
   .section2 h2 {
     padding-top: 80px;
@@ -97,45 +96,45 @@ h1,h2,h3{
   }
 /* Footer */
 footer {
-  margin: 0;
   background-color: #333;
-  background-image: url('../img/map-image.png'); /* Ruta de la imagen */
-  background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-  background-position: center; /* Centra la imagen */
   color: white;
   padding: 20px;
-  min-height: 150px; /* Altura mínima visible */
-  clear: both; /* Asegura que no se superponga a elementos flotantes */
+  text-align: center; /* Centra el texto */
+  background-image: url('../img/map-image.png'); /* Ruta a tu imagen de fondo */
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen de fondo */
 }
-footer .information{
-  float: left;
+
+footer .information {
+  margin-bottom: 20px;
 }
-footer .information ol li a{
+
+footer .information ol {
+  list-style: decimal;
+  padding-left: 0; /* Elimina el padding izquierdo */
+}
+
+footer .information ol li {
+  display: inline; /* Muestra los elementos en línea */
+  margin-right: 10px; /* Espacio entre los elementos */
+}
+
+footer .information ol li a {
   text-decoration: none;
   color: #fff;
 }
 
-footer ol{
-  list-style: decimal; /* Conservamos el estilo de números */
-  padding-left: 20px; /* Ajustamos el espacio general */
-}
-footer .social-table{
-  float: right;
-}
-/* Estilo para centrar la tabla */
 footer .social-table {
-  margin: 20px auto; /* Centrar la tabla horizontalmente */
+  margin: 20px auto; /* Centra la tabla horizontalmente */
   border-collapse: collapse; /* Elimina los bordes duplicados */
-  
 }
+
 footer .social-table td {
   padding: 10px; /* Espaciado interno entre la imagen y los bordes de la celda */
   text-align: center; /* Centrar contenido dentro de las celdas */
-  background-color: #fff;
-  border-radius: 8px;
 }
- /* Estilo para las imágenes de redes sociales */
-footer.social-table img {
+
+footer .social-table img {
   width: 50px; /* Ajusta el tamaño de las imágenes */
   height: 50px;
   border-radius: 50%; /* Hace las imágenes redondas */
@@ -145,16 +144,9 @@ footer.social-table img {
 footer .social-table img:hover {
   transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el ratón */
 }
-footer .social-table, footer .social-table td {
-  border: 2px solid #000; /* Bordes negros de 2px */
-}
-footer::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.grey-wave {
-  
+
+footer p {
+  margin-top: 20px;
 }
 .wave-container {
   background-color: rgb(126, 132, 138);
