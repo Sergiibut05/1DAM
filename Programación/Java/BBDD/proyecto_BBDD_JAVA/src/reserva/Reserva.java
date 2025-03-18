@@ -5,11 +5,12 @@ import java.sql.Date;
 import serializer.Serializer;
 
 public class Reserva implements Serializer{
+//Atributos
     private long id_reserva;
     private Date fecha_reserva;
     private long id_pasajero;
     private long id_vuelo;
-
+//Constructores
     public Reserva(long id_reserva, Date fecha_reserva, long id_pasajero, long id_vuelo){
         this.id_reserva = id_reserva;
         this.fecha_reserva = fecha_reserva;
@@ -29,7 +30,7 @@ public class Reserva implements Serializer{
         deserialize(data);
     }
 
-
+//Getters y Setters
     public void setId_reserva(long id_reserva) {
         this.id_reserva = id_reserva;
     }
@@ -54,7 +55,7 @@ public class Reserva implements Serializer{
     public long getId_vuelo() {
         return id_vuelo;
     }
-
+//Metodos
     @Override
     public String toString() {
         return String.format("ID de la Reserva: %d, Fecha de la Reserva: %s, ID del Pasajero: %s, ID del Vuelo: %s", this.id_reserva, this.fecha_reserva, this.id_pasajero, this.id_vuelo);

@@ -12,18 +12,20 @@ import java.util.ArrayList;
 import CRUD.CRUD;
 
 public class PasajeroCRUD implements CRUD<Pasajero> {
+//Atributo
     Connection conn;
 
-
+//Constructor
     public PasajeroCRUD(Connection conn) {
         this.conn = conn;
     }
 
-
+//Métodos de la Interfaz
+//Método para solicitar todos los pasajeros
     @Override
     public ArrayList<Pasajero> requestAll() throws SQLException {
         ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
-        String sql = "SELECT * FROM pasajero";
+        String sql = "SELECT * FROM pasajeros";
 
         try (PreparedStatement ps = this.conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -45,7 +47,7 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
             return pasajeros;
         }
     }
-
+//Método para solicitar un pasajero por su id
     @Override
     public Pasajero requestById(long id) throws SQLException {
         Pasajero pasajero = null;
@@ -66,7 +68,7 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
             return pasajero;
         }
     }
-
+//Método para crear un pasajero
     @Override
     public long create(Pasajero model) throws SQLException {
         String sql = String.format("INSERT INTO pasajeros (name,email,telefono) VALUES (?,?,?);");
@@ -81,13 +83,13 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
             ps.close();
             return id;
         }else{
-            throw new SQLException("User Creation Error, No User has been Created");
+            throw new SQLException("Error al insertar el Pasajero");
         }
     }
-
+//Método para actualizar un pasajero
     @Override
     public int update(Pasajero object) throws SQLException {
-        String sql = String.format("UPDATE pasajeros SET name=%s, email=%s, telefono=%s WHERE id_pasajero=%d",object.getName(),object.getEmail(),object.getTelefono(),object.getId_pasajero());
+        String sql = String.format("UPDATE pasajeros SET name='%s', email='%s', telefono='%s' WHERE id_pasajero=%d",object.getName(),object.getEmail(),object.getTelefono(),object.getId_pasajero());
         PreparedStatement ps = this.conn.prepareStatement(sql);
         int affectedRows = ps.executeUpdate();
         if(affectedRows == 0){
@@ -96,7 +98,7 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
             return affectedRows;
         }
     }
-
+//Método para eliminar un pasajero
     @Override
     public boolean delete(long id) throws SQLException {
         String sql = String.format("DELETE FROM pasajeros WHERE id_pasajero=%d",id);

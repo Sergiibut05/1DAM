@@ -3,11 +3,12 @@ package pasajero;
 import serializer.Serializer;
 
 public class Pasajero implements Serializer{
+//Atributos
     private long id_pasajero;
     private String name;
     private String email;
     private String telefono;
-
+//Constructores
     public Pasajero(){
         this(0,"","","");
     }
@@ -30,7 +31,7 @@ public class Pasajero implements Serializer{
         this.telefono = telefono;
     }
 
-
+//Getters y Setters
     public long getId_pasajero() {
         return id_pasajero;
     }
@@ -63,7 +64,7 @@ public class Pasajero implements Serializer{
         this.telefono = telefono;
     }
 
-    
+//Metodos  
     @Override
     public String toString() {
         return String.format("ID: %d, Nombre: %s, Email: %s, Telefono: %s", this.id_pasajero, this.name, this.email, this.telefono);

@@ -7,20 +7,20 @@ import java.sql.SQLException;
 import java.sql.SQLTimeoutException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import CRUD.CRUD;
-import pasajero.Pasajero;
-import pasajero.PasajeroCRUD;
+
 
 public class ReservaCRUD implements CRUD<Reserva>{
+//Atributo
     Connection conn;
 
-
+//Constructor
     public ReservaCRUD(Connection conn){
         this.conn = conn;
     }
 
-
+//Métodos de la Interfaz
+//Método para solicitar todas las reservas
     @Override
     public ArrayList requestAll() throws SQLException {
         ArrayList<Reserva> reservas = new ArrayList<>();
@@ -47,11 +47,11 @@ public class ReservaCRUD implements CRUD<Reserva>{
         }
 
     }
-
+//Método para solicitar una reserva por su id
     @Override
     public Reserva requestById(long id) throws SQLException {
         Reserva reserva = null;
-        String sql = String.format("SELECT * FROM reservas WHERE id_pasajero=%d",id);
+        String sql = String.format("SELECT * FROM reservas WHERE id_reserva=%d",id);
 
         try (PreparedStatement ps = this.conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
@@ -68,7 +68,7 @@ public class ReservaCRUD implements CRUD<Reserva>{
             return reserva;
         }
     }
-
+//Método para crear una reserva
     @Override
     public long create(Reserva model) throws SQLException {
         String sql = String.format("INSERT INTO reservas (fecha_reserva,id_pasajero,id_vuelo) VALUES (?,?,?);");
@@ -83,13 +83,13 @@ public class ReservaCRUD implements CRUD<Reserva>{
             ps.close();
             return id;
         }else{
-            throw new SQLException("User Creation Error, No User has been Created");
+            throw new SQLException("Error al crear la reserva, no se ha creado ninguna reserva");
         }
     }
-
+//Método para actualizar una reserva
     @Override
     public int update(Reserva object) throws SQLException {
-        String sql = String.format("UPDATE reservas SET fecha_reserva=%s, id_pasajero=%d, id_vuelo=%d WHERE id_reserva=%d",object.getFecha_reserva(),object.getId_pasajero(),object.getId_vuelo(),object.getId_reserva());
+        String sql = String.format("UPDATE reservas SET fecha_reserva='%s', id_pasajero=%d, id_vuelo=%d WHERE id_reserva=%d",object.getFecha_reserva(),object.getId_pasajero(),object.getId_vuelo(),object.getId_reserva());
         PreparedStatement ps = this.conn.prepareStatement(sql);
         int affectedRows = ps.executeUpdate();
         if(affectedRows == 0){
@@ -98,7 +98,7 @@ public class ReservaCRUD implements CRUD<Reserva>{
             return affectedRows;
         }
     }
-
+//Método para eliminar una reserva
     @Override
     public boolean delete(long id) throws SQLException {
         String sql = String.format("DELETE FROM reservas WHERE id_reserva=%d",id);

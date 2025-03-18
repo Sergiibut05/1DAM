@@ -3,12 +3,13 @@ import java.sql.Date;
 
 import serializer.Serializer;
 public class Vuelo implements Serializer{
+//Atributos
     private long id_vuelo;
     private String origen;
     private String destino;
     private Date fecha_salida;
     private Date fecha_llegada;
-
+//Constructores
     public Vuelo(){
         this(0,"","",null,null);
     }
@@ -30,7 +31,7 @@ public class Vuelo implements Serializer{
         this.fecha_salida = vue.getFecha_salida();
     }
     
-
+//Getters y Setters
     public long getId_vuelo() {
         return id_vuelo;
     }
@@ -59,8 +60,13 @@ public class Vuelo implements Serializer{
     }public void setOrigen(String origen) {
         this.origen = origen;
     }
-    
-        @Override
+
+//Metodos
+    @Override
+    public String toString() {
+        return String.format("ID del Vuelo=%d, Origen=%s, Destino=%s, Fecha de Salida=%s, Fecha de Llegada=%s", id_vuelo, origen, destino, fecha_salida, fecha_llegada);
+    }
+    @Override
     public String serialize() {
         return String.format("%d;\"%s\";\"%s\";\"%s\";\"%s\";", this.id_vuelo,this.origen,this.destino,this.fecha_salida,this.fecha_llegada);
     }

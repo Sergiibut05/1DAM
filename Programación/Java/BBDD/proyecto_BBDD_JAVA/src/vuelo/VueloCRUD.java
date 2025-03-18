@@ -14,13 +14,14 @@ import CRUD.CRUD;
 import pasajero.Pasajero;
 
 public class VueloCRUD implements CRUD<Vuelo>{
+//Atributo
     Connection conn;
 
-
+//Constructor
     public VueloCRUD(Connection conn) {
         this.conn = conn;
     }
-    
+//Métodos de la Interfaz   
     @Override
     public ArrayList<Vuelo> requestAll() throws SQLException {
         ArrayList<Vuelo> vuelos = new ArrayList<>();
@@ -47,7 +48,7 @@ public class VueloCRUD implements CRUD<Vuelo>{
             return vuelos;
         }
     }
-
+//Método para solicitar un vuelo por su id
     @Override
     public Vuelo requestById(long id) throws SQLException {
         Vuelo vuelo = null;
@@ -68,7 +69,7 @@ public class VueloCRUD implements CRUD<Vuelo>{
             return vuelo;
         }
     }
-
+//Método para crear un vuelo
     @Override
     public long create(Vuelo model) throws SQLException {
         String sql = String.format("INSERT INTO vuelos (origen,destino,fecha_salida,fecha_llegada) VALUES (?,?,?,?);");
@@ -84,13 +85,13 @@ public class VueloCRUD implements CRUD<Vuelo>{
             ps.close();
             return id;
         }else{
-            throw new SQLException("User Creation Error, No User has been Created");
+            throw new SQLException("Error al insertar el vuelo");
         }
     }
-
+//Método para actualizar un vuelo
     @Override
     public int update(Vuelo object) throws SQLException {
-        String sql = String.format("UPDATE vuelos SET origen=%s, destino=%s, fecha_salida=%s, fecha_llegada=%s WHERE id_vuelo=%d",object.getOrigen(),object.getDestino(),object.getFecha_salida(),object.getFecha_llegada(),object.getId_vuelo());
+        String sql = String.format("UPDATE vuelos SET origen='%s', destino='%s', fecha_salida='%s', fecha_llegada='%s' WHERE id_vuelo=%d",object.getOrigen(),object.getDestino(),object.getFecha_salida(),object.getFecha_llegada(),object.getId_vuelo());
         PreparedStatement ps = this.conn.prepareStatement(sql);
         int affectedRows = ps.executeUpdate();
         if(affectedRows == 0){
@@ -99,7 +100,7 @@ public class VueloCRUD implements CRUD<Vuelo>{
             return affectedRows;
         }
     }
-
+//Método para eliminar un vuelo
     @Override
     public boolean delete(long id) throws SQLException {
         String sql = String.format("DELETE FROM vuelos WHERE id_vuelo=%d",id);
