@@ -1,5 +1,4 @@
-package pasajero;
-
+package reserva;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,31 +9,33 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import CRUD.CRUD;
+import pasajero.Pasajero;
+import pasajero.PasajeroCRUD;
 
-public class PasajeroCRUD implements CRUD<Pasajero> {
+public class ReservaCRUD implements CRUD<Reserva>{
     Connection conn;
 
 
-    public PasajeroCRUD(Connection conn) {
+    public ReservaCRUD(Connection conn){
         this.conn = conn;
     }
 
 
     @Override
-    public ArrayList<Pasajero> requestAll() throws SQLException {
-        ArrayList<Pasajero> pasajeros = new ArrayList<Pasajero>();
-        String sql = "SELECT * FROM pasajero";
+    public ArrayList requestAll() throws SQLException {
+        ArrayList<Reserva> reservas = new ArrayList<>();
+        String sql = "SELECT * FROM reservas";
 
         try (PreparedStatement ps = this.conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Pasajero pasajero = new Pasajero();
-                    pasajero.setId_pasajero(rs.getLong("id_pasajero"));
-                    pasajero.setName(rs.getString("name"));
-                    pasajero.setEmail(rs.getString("email"));
-                    pasajero.setTelefono(rs.getString("telefono"));
-                    pasajeros.add(pasajero);
-                }
+            while(rs.next()){
+                Reserva reserva = new Reserva();
+                reserva.setId_reserva(rs.getLong("id_reserva"));
+                reserva.setFecha_reserva(rs.getDate("fecha_reserva"));
+                reserva.setId_pasajero(rs.getLong("id_pasajero"));
+                reserva.setId_vuelo(rs.getLong("id_vuelo"));
+                reservas.add(reserva);
+            }
         }catch (SQLTimeoutException e){
             throw new SQLTimeoutException("Error al acceder a la base de datos"+ e.toString());
         }catch (SQLException e){
@@ -42,19 +43,20 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
         }catch (Exception e){
             throw new SQLException("Ha ocurrido un error"+ e.toString());
         } finally {
-            return pasajeros;
+            return reservas;
         }
+
     }
 
     @Override
-    public Pasajero requestById(long id) throws SQLException {
-        Pasajero pasajero = null;
-        String sql = String.format("SELECT * FROM pasajeros WHERE id_pasajero=%d",id);
+    public Reserva requestById(long id) throws SQLException {
+        Reserva reserva = null;
+        String sql = String.format("SELECT * FROM reservas WHERE id_pasajero=%d",id);
 
         try (PreparedStatement ps = this.conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                pasajero = new Pasajero(id,rs.getString("name"),rs.getString("email"),rs.getString("telefono"));
+                 reserva = new Reserva(id,rs.getDate("fecha_reserva"),rs.getLong("id_pasajero"),rs.getLong("id_vuelo"));
             }
         } catch (SQLTimeoutException e){
             System.out.println("Error Al conectar con la Base de Datos "+ e.toString());
@@ -63,17 +65,17 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
         } catch (Exception e){
             System.out.println("Ha Ocurrido un Error "+ e.toString());
         }finally {
-            return pasajero;
+            return reserva;
         }
     }
 
     @Override
-    public long create(Pasajero model) throws SQLException {
-        String sql = String.format("INSERT INTO pasajeros (name,email,telefono) VALUES (?,?,?);");
+    public long create(Reserva model) throws SQLException {
+        String sql = String.format("INSERT INTO reservas (fecha_reserva,id_pasajero,id_vuelo) VALUES (?,?,?);");
         PreparedStatement ps = this.conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-        ps.setString(1, model.getName());
-        ps.setString(2, model.getEmail());
-        ps.setString(3, model.getTelefono());
+        ps.setDate(1, model.getFecha_reserva());
+        ps.setLong(2, model.getId_pasajero());
+        ps.setLong(3, model.getId_vuelo());
         ps.execute();
         ResultSet rs = ps.getGeneratedKeys();
         if(rs.next()){
@@ -86,8 +88,8 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
     }
 
     @Override
-    public int update(Pasajero object) throws SQLException {
-        String sql = String.format("UPDATE pasajeros SET name=%s, email=%s, telefono=%s WHERE id_pasajero=%d",object.getName(),object.getEmail(),object.getTelefono(),object.getId_pasajero());
+    public int update(Reserva object) throws SQLException {
+        String sql = String.format("UPDATE reservas SET fecha_reserva=%s, id_pasajero=%d, id_vuelo=%d WHERE id_reserva=%d",object.getFecha_reserva(),object.getId_pasajero(),object.getId_vuelo(),object.getId_reserva());
         PreparedStatement ps = this.conn.prepareStatement(sql);
         int affectedRows = ps.executeUpdate();
         if(affectedRows == 0){
@@ -99,7 +101,7 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
 
     @Override
     public boolean delete(long id) throws SQLException {
-        String sql = String.format("DELETE FROM pasajeros WHERE id_pasajero=%d",id);
+        String sql = String.format("DELETE FROM reservas WHERE id_reserva=%d",id);
         PreparedStatement ps = this.conn.prepareStatement(sql);
         int affected = ps.executeUpdate();
         ps.close();
@@ -109,6 +111,5 @@ public class PasajeroCRUD implements CRUD<Pasajero> {
             throw new SQLException("No Rows Affected");
         }
     }
-    
     
 }

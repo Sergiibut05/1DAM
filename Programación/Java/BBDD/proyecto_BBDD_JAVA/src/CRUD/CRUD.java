@@ -11,7 +11,7 @@ public interface CRUD<T> {
      * @throws SQLException
      */
     public ArrayList<T> requestAll() throws SQLException;
-
+        
     /** requestById
      * Obtiene un registro del modelo dado su clave primaria
      * @param id

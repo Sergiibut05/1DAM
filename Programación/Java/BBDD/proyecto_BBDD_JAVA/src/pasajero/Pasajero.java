@@ -1,10 +1,12 @@
 package pasajero;
 
+import serializer.Serializer;
+
 public class Pasajero implements Serializer{
-    long id_pasajero;
-    String name;
-    String email;
-    String telefono;
+    private long id_pasajero;
+    private String name;
+    private String email;
+    private String telefono;
 
     public Pasajero(){
         this(0,"","","");
@@ -76,16 +78,12 @@ public class Pasajero implements Serializer{
         return reString;
     }
     @Override
-    public void deserialize(String pasajero){
-        String[] parts = pasajero.split(";");
+    public void deserialize(String t){
+        String[] parts = t.split(";");
         this.id_pasajero =  Long.parseLong(substractAtribute(parts[0]));
         this.name = substractAtribute(parts[1]);
         this.email = substractAtribute(parts[2]);
         this.telefono = substractAtribute(parts[3]);
     }
 
-    public void setId(Long long1) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setId'");
-    }
 }
