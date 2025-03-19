@@ -48,7 +48,7 @@ public class App {
         try {
             ArrayList<Vuelo> vuelos = service.requestAll();
             if(vuelos.size()==0){
-                System.out.println("No hay grupos de alumnos");
+                System.out.println("No hay vuelos");
             }
             else{
                 for(Vuelo v : vuelos){
@@ -172,11 +172,13 @@ public class App {
                                         }
                                         break;
                                     case 4:
+                                        System.out.println("""
+                                                    Vuelos
+                                                    ----------------""");
                                         listarvuelos(vservice);
                                         break;
                                     case 5:
                                         System.out.println("Elija el Vuelo a visualizar");
-                                        listarvuelos(vservice);
                                         id = Integer.parseInt(sc.nextLine());
                                         Vuelo vuelo = vservice.requestById(id);
                                         if(vuelo!=null)
@@ -266,11 +268,13 @@ public class App {
                                         }
                                         break;
                                     case 4:
+                                        System.out.println("""
+                                                Pasajeros
+                                                ----------------""");
                                         listarpasajeros(pservice);
                                         break;
                                     case 5:
                                         System.out.println("Elija el Pasajero a visualizar");
-                                        listarpasajeros(pservice);
                                         id = Integer.parseInt(sc.nextLine());
                                         Pasajero pasajero = pservice.requestById(id);
                                         if(pasajero != null)
@@ -366,6 +370,9 @@ public class App {
                                         }
                                         break;
                                     case 4:
+                                        System.out.println("""
+                                            Reservas
+                                            ----------------""");
                                         listarreservas(rservice);
                                         break;
                                     case 5:
