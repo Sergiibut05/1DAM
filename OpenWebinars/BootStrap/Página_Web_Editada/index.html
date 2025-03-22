@@ -28,7 +28,7 @@
       
   </style>
 </head>
-<body>
+<body >
   <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -203,7 +203,7 @@
   </section>
   <div class="fullscreen-img" id="fullscreenImg">
     <span class="close-btn" onclick="closeFullscreen()">&times;</span>
-    <img src="" alt="Fullscreen Image">
+    <img class="" src="" alt="Fullscreen Image">
   </div>
   <section class="section2" id="localizacion"><!-- Sección de la ubicación y video -->
     <div class="cabezera">
@@ -285,11 +285,13 @@
       var fullscreenImg = document.getElementById("fullscreenImg");
       fullscreenImg.style.display = "flex";
       fullscreenImg.querySelector("img").src = img.src;
+      document.body.classList.add("no-scroll");
     }
 
     function closeFullscreen() {
       var fullscreenImg = document.getElementById("fullscreenImg");
       fullscreenImg.style.display = "none";
+      document.body.classList.remove("no-scroll");
     }
   </script>
 </body>
