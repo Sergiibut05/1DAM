@@ -1,0 +1,37 @@
+<div>
+    <p>avatar works incredible!</p>
+    <img 
+    [src]="adress.img" 
+    [alt]="name+surname" 
+    [style.border]="imgborderstyle"
+    [style]="age>30 ?imgstyle:'' "
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
+    <h1>{{name}}</h1>
+    <h2>{{surname}}</h2>
+    <p>{{age}}</p>
+    <p>{{married}}</p>
+    <p>{{adress.city}}</p>
+    <p>{{gettlf()}}</p>
+    <button 
+    (click)="buy()">Buy</button>
+    <div 
+    [style.display]="!(displayState) ?'none':'flex'">
+        <h2>Formulario de Dirección</h2>
+
+        <form action="#" method="post">
+            <!-- Campo para Dirección -->
+            <label for="address">Dirección:</label><br>
+            <input [(ngModel)]="adres" type="text" id="address" name="address" required><br><br>
+            
+            <!-- Campo para Código Postal -->
+            <label for="postalcode">Código Postal:</label><br>
+            <input [(ngModel)]="postaCode" type="text" id="postalcode" name="postalcode" required><br><br>
+            
+            <!-- Botón de Enviar -->
+            <button (click)="onMouseClick()">Send</button>
+        </form>
+    </div>
+    
+</div>
+
