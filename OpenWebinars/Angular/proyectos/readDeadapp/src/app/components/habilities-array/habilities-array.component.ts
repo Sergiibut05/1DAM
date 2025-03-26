@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-habilities-array',
-  standalone: false,
+  standalone: true,
   templateUrl: './habilities-array.component.html',
   styleUrl: './habilities-array.component.scss'
 })

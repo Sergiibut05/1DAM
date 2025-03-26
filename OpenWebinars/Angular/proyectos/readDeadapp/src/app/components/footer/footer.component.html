@@ -1,10 +1,31 @@
-<footer class="footer">
-    <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
-        <div class="container-fluid">
+<footer>
+  <div class="information">
+    <ol>
+      <li class="nav-item">
+        <a class="nav-link" [href]="pages.landingpage">Landing Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [href]="pages.main">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [href]="pages.missionsList">Missions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [href]="pages.form">Form</a>
+      </li>
+    </ol>
+  </div>
+  
+    <table class="social-table">
+      <tr>
+        <td>
           <a class="navbar-brand">
             <img [src]="navbar.img" alt="Logo" width="33" height="30" class="d-inline-block align-text-top">
-            {{navbar.name}}
           </a>
-        </div>
-    </nav> 
+        </td>
+      </tr>
+    </table>
+
+
+  <p>&copy; 2024 Todos los derechos reservados.(Sergii Butrii 1ºDAM)</p>
 </footer>

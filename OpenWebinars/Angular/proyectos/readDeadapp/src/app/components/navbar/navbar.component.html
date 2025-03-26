@@ -1,8 +1,22 @@
 <nav class="navbar fixed-top bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand">
-        <img [src]="navbar.img" alt="Logo" width="33" height="30" class="d-inline-block align-text-top">
+      <a [href]="pages.landingpage" class="navbar-brand">
+        <img  [src]="navbar.img" alt="Logo" width="33" height="30" class="d-inline-block align-text-top">
         {{navbar.name}}
       </a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" [href]="pages.landingpage">Landing Page</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [href]="pages.main">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [href]="pages.missionsList">Missions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [href]="pages.form">Form</a>
+          </li>
+        </ul>
     </div>
 </nav> 

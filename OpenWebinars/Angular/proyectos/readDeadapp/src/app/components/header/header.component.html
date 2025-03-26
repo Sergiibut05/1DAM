@@ -1,8 +1,10 @@
 
 <div class="portrait" >
-  <p href="" [@FadeInOut]="currentState" (click)="onClick()">Click Here --></p>
-  <img href="" [src]="portraitimg" [alt]="'John Marston'" [style]="portrait" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
-  <p href=""  (click)="onClick()"><-- Click Here</p>
+  <a  (click)="onClick()">Click Here --></a>
+  <a [href]="pages.main">
+    <img [src]="portraitimg" [alt]="'John Marston'" [style]="portrait" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  </a>
+  <a (click)="onClick()"><-- Click Here</a>
 </div>
 
-<!-- en el ultimo p [@FadeInOut]="currentState"-->
+

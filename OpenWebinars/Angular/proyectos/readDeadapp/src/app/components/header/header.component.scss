@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
-.portrait{
+.portrait {
     display: flex;         
     justify-content: center;       
-    place-items: center;         
+    align-items: center;         
     height: 100vh;                
     width: 100%; 
     color: aliceblue;
@@ -13,3 +13,8 @@
     font-size: x-large;
 }
 
+.portrait a {
+    color: aliceblue;
+    text-decoration: none;
+    margin: 0 10px;
+}

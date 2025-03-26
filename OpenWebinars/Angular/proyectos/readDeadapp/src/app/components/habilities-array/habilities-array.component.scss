@@ -1,6 +1,6 @@
-
-.row {
-    padding-top: 10%;
+.card {
+    max-width: 100%; // Ajustar el ancho máximo para que se adapte a la columna
+    margin: 10px 0; // Ajustar el margen para que haya espacio entre las tarjetas
+    display: block; // Asegurarse de que las tarjetas se comporten como bloques
+    
 }
-  
-  

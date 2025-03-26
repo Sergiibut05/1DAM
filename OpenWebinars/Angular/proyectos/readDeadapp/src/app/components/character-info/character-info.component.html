@@ -2,24 +2,20 @@
     <div class="personaje-info">
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/John_Marston_-_Red_Dead_Redemption.png" alt="John Marston" class="personaje-imagen">
       
-      <!--<h2>{{history.name}}</h2>
+      <h2>John Marston</h2>
       <hr>
-      <p><strong>Historia de {{history.name}}</strong></p>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" (click)="changeLang('es')">Español</button>
+        <button type="button" class="btn btn-secondary" (click)="changeLang('en')">Ingles</button>
+      </div>
+      <p><strong>{{history.name | translate}}</strong></p>
       <hr>
-      <p><strong class="titulo">Habilidades:</strong></p>
-      <ul>
-        <li>{{habilitie.name}}: {{habilitie.description}}</li>
-      </ul>
-      <hr>
+      <p><strong>Description</strong>: {{history.description | translate}}</p>
+      <p><strong class="titulo">Habilidades:</strong>: {{history.habilidades | translate}}</p>
       <p><strong class="titulo">Cita célebre:</strong> </p>
       <hr>
-      -->
-      
-      <button class="ver-mas-btn">Ver más</button>
-      
       <div class="detalles">
         <p>John Marston fue un hombre marcado por su pasado, pero en busca de redención...</p>
-        <!-- Aquí se podría agregar más contenido sobre su historia detallada -->
       </div>
     </div>
   </div>
