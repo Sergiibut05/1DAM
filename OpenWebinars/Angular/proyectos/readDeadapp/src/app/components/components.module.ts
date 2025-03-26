@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common'; // Módulo común para usar ngIf
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { CharacterInfoComponent } from './character-info/character-info.component';
+import { HabilitiesArrayComponent } from './habilities-array/habilities-array.component';
+
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CharacterInfoComponent } from './character-info/character-info.componen
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-    CharacterInfoComponent
+    HabilitiesArrayComponent,
+    
   ],
   imports: [
     CommonModule
@@ -20,7 +22,8 @@ import { CharacterInfoComponent } from './character-info/character-info.componen
     HeaderComponent,
     NavbarComponent,
     FooterComponent,
-    CharacterInfoComponent
+    HabilitiesArrayComponent,
+    
   ]
 })
 export class ComponentsModule { }

@@ -1,4 +1,6 @@
 <app-navbar></app-navbar>
-<app-character-info></app-character-info>
-<router-outlet></router-outlet>
+<div *ngFor= "let habilitie of habilities">
+    <app-habilities-array [habilitie]="habilitie"></app-habilities-array>
+</div>
+<!-- <router-outlet></router-outlet>  -->
 <app-footer></app-footer>
