@@ -1,0 +1,41 @@
+<p>home works</p>
+<button routerLink="" routerLinkActive="active" #homeActive="routerLinkActive">home</button>
+<button routerLink="about-us">about-us</button>
+<button routerLink="products">products</button>
+<button routerLink="/cart">cart</button>
+<div class="Reactive-Form" *ngIf="isHomeView && !isLoggedIn">
+    <form [formGroup]="formEntrada" (ngSubmit)="editarEntrada()">
+        <label>Username:</label>
+        <input type="text" formControlName="username">
+        <div *ngIf="formEntrada.get('username')?.invalid && formEntrada.get('username')?.touched">
+            <div *ngIf="formEntrada.get('username')?.errors?.['required']">
+                Username is required
+            </div>
+        </div>
+        <label>Email:</label>
+        <input type="text" formControlName="email">
+        <div *ngIf="formEntrada.get('email')?.invalid && formEntrada.get('email')?.touched">
+            <div *ngIf="formEntrada.get('email')?.errors?.['required']">
+                Email is required
+            </div>
+            <div *ngIf="formEntrada.get('email')?.errors?.['email']">
+                Please enter a valid email address 
+            </div>
+        </div>
+        <label>Password:</label>
+        <input type="text" formControlName="password">
+        <div *ngIf="formEntrada.get('password')?.invalid && formEntrada.get('password')?.touched">
+            <div *ngIf="formEntrada.get('password')?.errors?.['required']">
+                Password is required
+            </div>
+            <div *ngIf="formEntrada.get('password')?.errors?.['minlength']">
+                Password must be at least 6 characters
+            </div>
+            <div *ngIf="formEntrada.get('password')?.errors?.['pattern']">
+                Password can only contain letters and numbers
+            </div>
+        </div>
+        <button type="submit" [disabled]="!formEntrada.valid">Submit</button>
+    </form>
+</div>
+<router-outlet></router-outlet>

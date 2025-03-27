@@ -1,0 +1,12 @@
+<p>products works!</p>
+<p>
+    {{ userData?.username ? 'Welcome, ' + userData.username : 'Please log in' }}
+</p>
+<div *ngFor="let product of products">
+    <div (click)="onClick(product.id)">    
+        <img [src]="product.foto" alt="{{ product.nombre }}" height="500px" width="300px"/>
+        <h3>{{ product.nombre }}</h3>
+        <p>Precio: {{ product.precio | currency }}</p>
+        <p>Fecha de salida: {{ product.fechaSalida }}</p>
+    </div>
+</div>

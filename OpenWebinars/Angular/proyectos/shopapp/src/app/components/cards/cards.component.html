@@ -1,0 +1,8 @@
+<div>
+    <img [src]="selectProduct?.foto" alt="{{ selectProduct?.nombre }}" height="600px" width="325px"/>
+    <h3>{{ selectProduct?.nombre }}</h3>
+    <p>Descripción: {{ selectProduct?.descripcion }}</p>
+    <p>Precio: {{ selectProduct?.precio | currency }}</p>
+    <p>Fecha de salida: {{ selectProduct?.fechaSalida }}</p>
+</div>
+

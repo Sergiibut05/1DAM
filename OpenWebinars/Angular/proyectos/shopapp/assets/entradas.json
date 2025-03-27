@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg",
+      "nombre": "El Principito",
+      "precio": 12.99,
+      "descripcion": "Un clásico de la literatura que narra la historia de un pequeño príncipe que viaja por el universo.",
+      "categoria": "Ficción",
+      "fechaSalida": "1943-04-06"
+    },
+    {
+      "id": 2,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg",
+      "nombre": "1984",
+      "precio": 15.49,
+      "descripcion": "Una novela distópica que explora los peligros del totalitarismo.",
+      "categoria": "Ciencia Ficción",
+      "fechaSalida": "1949-06-08"
+    },
+    {
+      "id": 3,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/81iqZ2HHD-L.jpg",
+      "nombre": "Harry Potter y la piedra filosofal",
+      "precio": 19.99,
+      "descripcion": "El inicio de la mágica saga de Harry Potter, un joven mago que descubre su destino.",
+      "categoria": "Fantasía",
+      "fechaSalida": "1997-06-26"
+    },
+    {
+      "id": 4,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg",
+      "nombre": "El Alquimista",
+      "precio": 10.99,
+      "descripcion": "Una inspiradora historia sobre seguir tus sueños y encontrar tu destino.",
+      "categoria": "Autoayuda",
+      "fechaSalida": "1988-05-01"
+    },
+    {
+      "id": 5,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/81drfTT9ZfL.jpg",
+      "nombre": "Orgullo y Prejuicio",
+      "precio": 14.99,
+      "descripcion": "Una novela romántica que explora las complejidades del amor y la sociedad.",
+      "categoria": "Romance",
+      "fechaSalida": "1813-01-28"
+    },
+    {
+      "id": 6,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/91bYsX41DVL.jpg",
+      "nombre": "Sapiens: De animales a dioses",
+      "precio": 22.50,
+      "descripcion": "Un fascinante recorrido por la historia de la humanidad.",
+      "categoria": "Historia",
+      "fechaSalida": "2011-09-04"
+    },
+    {
+      "id": 7,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL.jpg",
+      "nombre": "Hábitos Atómicos",
+      "precio": 18.75,
+      "descripcion": "Un libro práctico sobre cómo construir buenos hábitos y romper los malos.",
+      "categoria": "Autoayuda",
+      "fechaSalida": "2018-10-16"
+    },
+    {
+      "id": 8,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/71KilybDOoL.jpg",
+      "nombre": "El Hobbit",
+      "precio": 13.99,
+      "descripcion": "La precuela de El Señor de los Anillos, una aventura épica en la Tierra Media.",
+      "categoria": "Fantasía",
+      "fechaSalida": "1937-09-21"
+    },
+    {
+      "id": 9,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg",
+      "nombre": "Matar a un ruiseñor",
+      "precio": 16.99,
+      "descripcion": "Una poderosa novela sobre la justicia y la moralidad en el sur de los Estados Unidos.",
+      "categoria": "Ficción",
+      "fechaSalida": "1960-07-11"
+    },
+    {
+      "id": 10,
+      "foto": "https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL.jpg",
+      "nombre": "Cien años de soledad",
+      "precio": 17.99,
+      "descripcion": "Una obra maestra del realismo mágico que narra la historia de la familia Buendía.",
+      "categoria": "Ficción",
+      "fechaSalida": "1967-05-30"
+    }
+  ]
