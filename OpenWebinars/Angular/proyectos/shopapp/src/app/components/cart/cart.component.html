@@ -1,1 +1,10 @@
 <p>cart works!</p>
+<div *ngFor="let product of productsCart">
+    <p>{{product[0].nombre}}</p>
+    <p>Price per Product: {{product[0].precio | currency}}</p>
+    <p>Total Product Price: {{product[0].precio*product[1] | currency}}</p>
+    <p>Quantity: {{product[1]}}</p>
+    
+</div>
+<p>Total: {{totalPrice}}</p>
+
