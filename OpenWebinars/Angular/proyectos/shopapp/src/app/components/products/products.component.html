@@ -2,12 +2,17 @@
 <p>
     {{ userData?.username ? 'Welcome, ' + userData.username : 'Please log in' }}
 </p>
-<div *ngFor="let product of products">
-    <div (click)="onClick(product.id)">    
-        <img [src]="product.foto" alt="{{ product.nombre }}" height="500px" width="300px"/>
-        <h3>{{ product.nombre }}</h3>
-        <p>Precio: {{ product.precio | currency }}</p>
-        <p>Fecha de salida: {{ product.fechaSalida }}</p>
-    </div>
-    <button (click)="onClickBuy(product)">Añadir al Carrito Una Unidad</button>
+<div class="flex flex-wrap gap-6 justify-center">
+    <div *ngFor="let product of products">
+        <div class="">
+            <div (click)="onClick(product.id)" class="">    
+                <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]">
+                    <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105" [src]="product.foto" alt="{{ product.nombre }}"/>
+                </div>
+                <h3 class="text-xl font-semibold">{{ product.nombre }}</h3>
+                <p><strong>Precio: </strong>{{ product.precio | currency }}</p>
+            </div>
+            <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickBuy(product)">Añadir al Carrito</button>
+        </div>
+    </div>    
 </div>

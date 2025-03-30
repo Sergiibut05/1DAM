@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EntriesService } from '../../services/entries.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cards',
@@ -14,7 +15,7 @@ export class CardsComponent implements OnInit{
   public id: number = 0;
   public selectProduct: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private entriesService: EntriesService) {
+  constructor(private activatedRoute: ActivatedRoute, private entriesService: EntriesService, private cartService: CartService, private router: Router) {
     this.activatedRoute.params.subscribe( paramsUrl => {
       this.id = +paramsUrl['id'];
     });
@@ -29,5 +30,11 @@ export class CardsComponent implements OnInit{
         }
       });
     });
+  }
+  onClickBuy(product: Object){
+    this.cartService.addToCart(product);
+  }
+  onClick(){
+    this.router.navigate([`/home/products/`])
   }
 }

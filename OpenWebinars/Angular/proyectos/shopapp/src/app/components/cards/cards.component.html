@@ -1,8 +1,24 @@
-<div>
-    <img [src]="selectProduct?.foto" alt="{{ selectProduct?.nombre }}" height="600px" width="325px"/>
-    <h3>{{ selectProduct?.nombre }}</h3>
-    <p>Descripción: {{ selectProduct?.descripcion }}</p>
-    <p>Precio: {{ selectProduct?.precio | currency }}</p>
-    <p>Fecha de salida: {{ selectProduct?.fechaSalida }}</p>
+<div class="pl-5">
+    <button class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick()">Volver</button>
 </div>
+<div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-2xl max-w-sm mx-auto text-center">
+    <img 
+        [src]="selectProduct?.foto" 
+        alt="{{ selectProduct?.nombre }}" 
+        class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105"
+    />
 
+    <h3 class="mt-4 text-2xl font-semibold text-gray-800">{{ selectProduct?.nombre }}</h3>
+
+    <p class="mt-2 text-gray-600"><strong>Descripción:</strong> {{ selectProduct?.descripcion }}</p>
+
+    <p class="mt-2 text-gray-700 font-bold"><strong>Precio:</strong> {{ selectProduct?.precio | currency }}</p>
+
+    <p class="mt-2 text-gray-500"><strong>Fecha de salida:</strong> {{ selectProduct?.fechaSalida }}</p>
+
+    <button 
+        class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" 
+        (click)="onClickBuy(selectProduct)">
+        Añadir al Carrito
+    </button>
+</div>

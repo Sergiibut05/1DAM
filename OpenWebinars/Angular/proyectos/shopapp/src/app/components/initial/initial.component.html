@@ -1,41 +1,54 @@
-<p>home works</p>
-<button routerLink="" routerLinkActive="active" #homeActive="routerLinkActive">home</button>
-<button routerLink="about-us">about-us</button>
-<button routerLink="products">products</button>
-<button routerLink="/cart">cart</button>
-<div class="Reactive-Form" *ngIf="isHomeView && !isLoggedIn">
+<div *ngIf="isHomeView" class="-z-10 absolute top-0 left-0 w-full h-screen">
+    <img src="{{backroundImg}}" alt="Fondo-inicio" class="w-full h-full object-cover">
+</div>
+<div class="z-1 py-8 w-full">
+    <div class="rounded-xl max-w-19/20 mx-auto flex gap-10 justify-end pr-8 py-4 bg-transparent hover:bg-white {{isHomeColor}} hover:text-black transition-colors duration-400">
+        <button class="p-4 bg-transparent hover:bg-gray-100 transition duration-500 rounded-xl" routerLink="" routerLinkActive="active" #homeActive="routerLinkActive">Home</button>
+        <button class="p-4 bg-transparent hover:bg-gray-100 transition duration-500 rounded-xl" routerLink="about-us">About Us</button>
+        <button class="p-4 bg-transparent hover:bg-gray-100 transition duration-500 rounded-xl" routerLink="products">Products</button>
+        <button class="p-4 bg-transparent hover:bg-gray-100 transition duration-500 rounded-xl" routerLink="/cart">Cart</button>
+    </div>  
+</div>
+<div class="Reactive-Form font-sans bg-gray-100 border border-black px-6 py-8 rounded-lg shadow-lg mx-auto max-w-2xl" *ngIf="isHomeView && !isLoggedIn">
     <form [formGroup]="formEntrada" (ngSubmit)="editarEntrada()">
-        <label>Username:</label>
-        <input type="text" formControlName="username">
-        <div *ngIf="formEntrada.get('username')?.invalid && formEntrada.get('username')?.touched">
-            <div *ngIf="formEntrada.get('username')?.errors?.['required']">
-                Username is required
+        <div class="grid grid-cols-5 gap-2">
+            <label>Username:</label>
+            <input type="text" formControlName="username" name="username" id="username" class="border-2 border-gray-700 rounded-lg col-span-2">
+            <div class="col-span-2" *ngIf="formEntrada.get('username')?.invalid && formEntrada.get('username')?.touched">
+                <div class="text-red-300" *ngIf="formEntrada.get('username')?.errors?.['required']">
+                    *Username is required
+                </div>
             </div>
         </div>
-        <label>Email:</label>
-        <input type="text" formControlName="email">
-        <div *ngIf="formEntrada.get('email')?.invalid && formEntrada.get('email')?.touched">
-            <div *ngIf="formEntrada.get('email')?.errors?.['required']">
-                Email is required
-            </div>
-            <div *ngIf="formEntrada.get('email')?.errors?.['email']">
-                Please enter a valid email address 
-            </div>
-        </div>
-        <label>Password:</label>
-        <input type="text" formControlName="password">
-        <div *ngIf="formEntrada.get('password')?.invalid && formEntrada.get('password')?.touched">
-            <div *ngIf="formEntrada.get('password')?.errors?.['required']">
-                Password is required
-            </div>
-            <div *ngIf="formEntrada.get('password')?.errors?.['minlength']">
-                Password must be at least 6 characters
-            </div>
-            <div *ngIf="formEntrada.get('password')?.errors?.['pattern']">
-                Password can only contain letters and numbers
+        <div class="grid grid-cols-5 gap-2">
+            <label>Email:</label>
+            <input type="text" formControlName="email" class="border-2 border-gray-700 rounded-lg col-span-2">
+            <div class="col-span-2" *ngIf="formEntrada.get('email')?.invalid && formEntrada.get('email')?.touched">
+                <div class="text-red-300" *ngIf="formEntrada.get('email')?.errors?.['required']">
+                    *Email is required
+                </div>
+                <div class="text-red-300" *ngIf="formEntrada.get('email')?.errors?.['email']">
+                    *Please enter a valid email address 
+                </div>
             </div>
         </div>
-        <button type="submit" [disabled]="!formEntrada.valid">Submit</button>
+        <div class="grid grid-cols-5 gap-2">
+            <label>Password:</label>
+            <input type="text" formControlName="password" class="border-2 border-gray-700 rounded-lg col-span-2">
+            <div class="col-span-2" *ngIf="formEntrada.get('password')?.invalid && formEntrada.get('password')?.touched">
+                <div class="text-red-300" *ngIf="formEntrada.get('password')?.errors?.['required']">
+                    *Password is required
+                </div>
+                <div class="text-red-300" *ngIf="formEntrada.get('password')?.errors?.['minlength']">
+                    *Password must be at least 6 characters
+                </div>
+                <div class="text-red-300" *ngIf="formEntrada.get('password')?.errors?.['pattern']">
+                    *Password can only contain letters and numbers
+                </div>
+            </div>
+        </div>
+        
+        <button class="font-sans text-white bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 mx-auto block" type="submit" [disabled]="!formEntrada.valid">Submit</button>
     </form>
 </div>
 <router-outlet></router-outlet>
