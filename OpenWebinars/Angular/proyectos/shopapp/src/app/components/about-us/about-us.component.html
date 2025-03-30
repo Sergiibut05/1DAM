@@ -1,44 +1,48 @@
-<h1>About Us</h1>
-<p>
+<div class="-z-10 absolute top-0 left-0 w-full h-screen">
+    <img src="{{backroundfImg}}" alt="Fondo-inicio" class="w-full h-full object-cover blur-md">
+</div>
+<p (click)="onClick()">
 {{ userData?.username ? 'Welcome, ' + userData.username : 'Please log in' }}
 </p>
-<div class="max-w-3xl mx-auto my-12 p-8 bg-white shadow-2xl rounded-2xl text-center">
+<div class="max-w-[90%] mx-auto pb-25">
+    <div class="max-w-3xl mx-auto my-12 p-8 bg-white shadow-2xl rounded-2xl text-center">
     
-    <h1 class="text-4xl font-bold text-blue-700 mb-6">📖 Sobre Nosotros</h1>
-
-    <p class="text-lg text-gray-700">
-        Bienvenidos a <span class="font-semibold">Library Shop</span>, el hogar de los amantes de los libros. 📚✨  
-        Más que una tienda, somos un rincón donde las historias cobran vida y las páginas te transportan a nuevos mundos.
-    </p>
-
-    <div class="mt-6">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">🎯 Nuestra misión</h2>
-        <ul class="text-gray-700 space-y-2 max-w-[60%] mx-auto text-left">
-            <li>💡 Hacer que la lectura sea accesible para todos.</li>
-            <li>❤️ Conectar a las personas con historias que cambian vidas.</li>
-            <li>🚀 Crear una comunidad de lectores apasionados.</li>
-        </ul>
-    </div>
-
-    <div class="mt-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">📚 ¿Por qué elegirnos?</h2>
-        <ul class="text-gray-700 space-y-2 text-left max-w-[80%] mx-auto">
-            <li>✔️ <strong>Variedad infinita</strong> – Desde bestsellers hasta joyas escondidas.</li>
-            <li>✔️ <strong>Precios competitivos</strong> – Queremos que los libros sean accesibles para todos.</li>
-            <li>✔️ <strong>Envío rápido</strong> – Porque sabemos que no puedes esperar para sumergirte en tu próxima lectura.</li>
-            <li>✔️ <strong>Recomendaciones personalizadas</strong> – Si no sabes qué leer, nosotros te ayudamos.</li>
-        </ul>
-    </div>
-
-    <div class="mt-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-2">🌍 Únete a nuestra comunidad</h2>
-        <p class="text-gray-700 text-left max-w-[90%] mx-auto">
-            Síguenos en redes sociales para descubrir novedades, descuentos y participar en nuestra comunidad lectora.  
-            ¡Porque los libros son aún mejores cuando se comparten! 📚💬
+        <h1 class="text-4xl font-bold text-blue-700 mb-6">📖 Sobre Nosotros</h1>
+    
+        <p class="text-lg text-gray-700">
+            Bienvenidos a <span class="font-semibold">Library Shop</span>, el hogar de los amantes de los libros. 📚✨  
+            Más que una tienda, somos un rincón donde las historias cobran vida y las páginas te transportan a nuevos mundos.
         </p>
-    </div>
-
-    <div class="mt-6">
-        <p class="text-xl font-semibold text-blue-700">Descubre, explora y vive la magia de la lectura con <span class="font-bold">Nombre de tu Tienda</span>. ✨</p>
-    </div>
+    
+        <div class="mt-6">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-2">🎯 Nuestra misión</h2>
+            <ul class="text-gray-700 space-y-2 max-w-[60%] mx-auto text-left">
+                <li>💡 Hacer que la lectura sea accesible para todos.</li>
+                <li>❤️ Conectar a las personas con historias que cambian vidas.</li>
+                <li>🚀 Crear una comunidad de lectores apasionados.</li>
+            </ul>
+        </div>
+    
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-2">📚 ¿Por qué elegirnos?</h2>
+            <ul class="text-gray-700 space-y-2 text-left max-w-[80%] mx-auto">
+                <li>✔️ <strong>Variedad infinita</strong> – Desde bestsellers hasta joyas escondidas.</li>
+                <li>✔️ <strong>Precios competitivos</strong> – Queremos que los libros sean accesibles para todos.</li>
+                <li>✔️ <strong>Envío rápido</strong> – Porque sabemos que no puedes esperar para sumergirte en tu próxima lectura.</li>
+                <li>✔️ <strong>Recomendaciones personalizadas</strong> – Si no sabes qué leer, nosotros te ayudamos.</li>
+            </ul>
+        </div>
+    
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-2">🌍 Únete a nuestra comunidad</h2>
+            <p class="text-gray-700 text-left max-w-[90%] mx-auto">
+                Síguenos en redes sociales para descubrir novedades, descuentos y participar en nuestra comunidad lectora.  
+                ¡Porque los libros son aún mejores cuando se comparten! 📚💬
+            </p>
+        </div>
+    
+        <div class="mt-6">
+            <p class="text-xl font-semibold text-blue-700">Descubre, explora y vive la magia de la lectura con <span class="font-bold">Nombre de tu Tienda</span>. ✨</p>
+        </div>
+    </div>    
 </div>

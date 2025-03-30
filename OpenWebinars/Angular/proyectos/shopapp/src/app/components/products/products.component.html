@@ -1,8 +1,8 @@
-<p>products works!</p>
+<p>Products</p>
 <p>
     {{ userData?.username ? 'Welcome, ' + userData.username : 'Please log in' }}
 </p>
-<div class="flex flex-wrap gap-6 justify-center">
+<div class="flex flex-wrap gap-6 justify-center pb-30">
     <div *ngFor="let product of products">
         <div class="">
             <div (click)="onClick(product.id)" class="">    
