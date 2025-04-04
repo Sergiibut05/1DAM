@@ -3,7 +3,6 @@ import { CartService } from '../../services/cart.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Book } from '../Book.interface';
 import { Router } from '@angular/router';
-import { EmailService } from '../../services/email.service';
 import { AuthService } from '../../services/auth.service';
 import { user, User } from '@angular/fire/auth';
 import { HttpClient } from '@angular/common/http';
@@ -20,7 +19,7 @@ export class CartComponent implements OnInit{
   public userData: User | null = null;
   public username: string | null = null; 
 
-  constructor(private http: HttpClient,private authService: AuthService,private cartService: CartService, private cdRef: ChangeDetectorRef, private router: Router, private emailservice: EmailService) { }
+  constructor(private http: HttpClient,private authService: AuthService,private cartService: CartService, private cdRef: ChangeDetectorRef, private router: Router) { }
   ngOnInit(){
     this.authService.user$.subscribe(
           (user) => {
