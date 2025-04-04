@@ -6,22 +6,24 @@
         <p class="font-bold text-2xl" >Your Cart</p>
     </div>
     <div *ngFor="let product of productsCart" class="">
-        <div class="grid grid-cols-10 gap-2 pb-4 max-w-200 mx-auto">
+        <div class="grid grid-cols-12 gap-2 pb-4 max-w-200 mx-auto">
             <img class="col-span-1" src="{{product[0].photo}}" alt="{{product[0].name}}" height="40" width="40">
             <p class="px-4 col-span-2">{{product[0].name}}</p>
             <p class="col-span-2">[Price per Product: {{product[0].price}}]</p>
             <p class="col-span-1 text-center">X</p>
             <p class="col-span-2">[Quantity: {{product[1]}}]</p>
             <p class="px-4 col-span-2">Total Product Price: {{product[0].price*product[1]}}</p>
-            <div>
-                <button class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDeleteOne(product[0])">Eliminar Uno</button>
+            <div class="col-span-2">
+                <div class="pb-1">
+                    <button class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDeleteOne(product[0])">Eliminar Uno</button>
+                </div>
                 <button class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product[0])">Eliminar</button>
             </div>
         </div>
     </div>
         <div class="mx-auto flex max-w-200">
             <p class="pr-142 py-2"><strong>Total:</strong> {{totalPrice | currency}}</p>
-            <button (click)="onClickSendEmail()" class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">Comprar</button>
+            <button (click)="onClickSendEmail()" class="px-4 py-2 border-gray-700 bg-black rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">Comprar</button>
         </div>
 </div>
 <ng-template #emptyCart>
