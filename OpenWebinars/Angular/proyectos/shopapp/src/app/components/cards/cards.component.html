@@ -1,24 +1,73 @@
+<div *ngIf="!product">
+    <p>Cargando...</p>
+</div>
 <div class="pl-5">
     <button class="mt-4 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick()">Volver</button>
 </div>
-<div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-2xl max-w-sm mx-auto text-center">
+<div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-2xl max-w-sm mx-auto text-center" *ngIf="product">
     <img 
-        [src]="selectProduct?.foto" 
-        alt="{{ selectProduct?.nombre }}" 
+        [src]="product.photo" 
+        alt="{{ product.name }}" 
         class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105"
     />
 
-    <h3 class="mt-4 text-2xl font-semibold text-gray-800">{{ selectProduct?.nombre }}</h3>
+    <h3 class="mt-4 text-2xl font-semibold text-gray-800">{{ product.name }}</h3>
 
-    <p class="mt-2 text-gray-600"><strong>Descripción:</strong> {{ selectProduct?.descripcion }}</p>
+    <p class="mt-2 text-gray-600"><strong>Descripción:</strong> {{ product.description }}</p>
 
-    <p class="mt-2 text-gray-700 font-bold"><strong>Precio:</strong> {{ selectProduct?.precio | currency }}</p>
+    <p class="mt-2 text-gray-700 font-bold"><strong>Precio:</strong> {{ product.price | currency }}</p>
 
-    <p class="mt-2 text-gray-500"><strong>Fecha de salida:</strong> {{ selectProduct?.fechaSalida }}</p>
+    <p class="mt-2 text-gray-500"><strong>Fecha de salida:</strong> {{ product.releaseDate }}</p>
 
     <button 
         class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" 
-        (click)="onClickBuy(selectProduct)">
+        (click)="onClickBuy(product)">
         Añadir al Carrito
     </button>
+</div>
+<div *ngIf="editMode">
+    <div class="flex justify-center pt-20">
+        <p class="font-bold text-2xl">Edit Your Book Settings</p>
+    </div>
+    <div class="pb-65" >
+        <div class="Reactive-Form font-sans bg-gray-100 border border-black px-6 py-8 rounded-lg shadow-lg mx-auto max-w-2xl">
+            <form [formGroup]="formBook">
+                <div>
+                    <p class="font-bold pb-2">Edit only the one your are going to change*</p>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Name:</label>
+                    <input type="text" formControlName="name" class="border-2 border-gray-700 rounded-lg col-span-2" placeholder="{{product.name}}">
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Description:</label>
+                    <input type="text" formControlName="description" class="border-2 border-gray-700 rounded-lg col-span-2" placeholder="{{product.description}}">
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Price:</label>
+                    <input type="number" formControlName="price" class="border-2 border-gray-700 rounded-lg col-span-2">
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Release Date:</label>
+                    <input type="date" formControlName="releaseDate" class="border-2 border-gray-700 rounded-lg col-span-2">
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Category:</label>
+                    <select formControlName="category" class="border-2 border-gray-700 rounded-lg col-span-2">
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option value="Ficción">Ficción</option>
+                        <option value="Fantasía">Fantasía</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Autoayuda">Autoayuda</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Photo URL:</label>
+                    <input type="text" formControlName="photo" class="border-2 border-gray-700 rounded-lg col-span-2" placeholder="{{product.photo}}">
+                </div>
+                <button  class="font-sans text-white bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 mx-auto block" type="submit" [disabled]="!formBook.valid" (click)="onClickUpdateBook()">Edit</button>
+            </form>
+        </div>
+    </div>
 </div>

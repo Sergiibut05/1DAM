@@ -1,10 +1,26 @@
-<p>cart works!</p>
-<div *ngFor="let product of productsCart">
-    <p>{{product[0].nombre}}</p>
-    <p>Price per Product: {{product[0].precio | currency}}</p>
-    <p>Total Product Price: {{product[0].precio*product[1] | currency}}</p>
-    <p>Quantity: {{product[1]}}</p>
-    
+<div class="py-8 px-4">
+    <button (click)="redirectToProduct()" class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">Volver</button>
 </div>
-<p>Total: {{totalPrice}}</p>
+<div *ngIf="productsCart.length > 0; else emptyCart" class="">
+    <div class="py-6 flex max-w-200 mx-auto">
+        <p class="font-bold text-2xl" >Your Cart</p>
+    </div>
+    <div *ngFor="let product of productsCart" class="">
+        <div class="grid grid-cols-10 gap-2 pb-4 max-w-200 mx-auto">
+            <img class="col-span-1" src="{{product[0].photo}}" alt="{{product[0].name}}" height="40" width="40">
+            <p class="px-4 col-span-2">{{product[0].name}}</p>
+            <p class="col-span-2">[Price per Product: {{product[0].price}}]</p>
+            <p class="col-span-1 text-center">X</p>
+            <p class="col-span-2">[Quantity: {{product[1]}}]</p>
+            <p class="px-4 col-span-2">Total Product Price: {{product[0].price*product[1]}}</p>
+        </div>
+    </div>
+        <div class="mx-auto flex max-w-200">
+            <p class="pr-142 py-2"><strong>Total:</strong> {{totalPrice | currency}}</p>
+            <button (click)="onClickSendEmail()" class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">Comprar</button>
+        </div>
+</div>
+<ng-template #emptyCart>
+    <p><strong>The cart is empty.</strong></p>
+</ng-template>
 

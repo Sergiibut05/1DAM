@@ -14,7 +14,7 @@
       "nombre": "1984",
       "precio": 15.49,
       "descripcion": "Una novela distópica que explora los peligros del totalitarismo.",
-      "categoria": "Ciencia Ficción",
+      "categoria": "Ficción",
       "fechaSalida": "1949-06-08"
     },
     {
@@ -89,4 +89,5 @@
       "categoria": "Ficción",
       "fechaSalida": "1967-05-30"
     }
+    
   ]

@@ -1,18 +1,136 @@
-<p>Products</p>
-<p>
-    {{ userData?.username ? 'Welcome, ' + userData.username : 'Please log in' }}
-</p>
-<div class="flex flex-wrap gap-6 justify-center pb-30">
+<div class="flex justify-between">
+    <div class="px-6 py-8">
+        <button (click)="onClickBtnBuy()" 
+        [ngClass]="{'bg-white text-black': !sellOption, 'bg-black/50 text-white': sellOption}"
+        class="cursor-pointer hover:bg-white hover:text-black text-white font-semibold py-2 px-6 rounded-l-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+        Buy</button>
+        <button (click)="onClickSell()"
+        [ngClass]="{'bg-white text-black': sellOption, 'bg-black/50 text-white': !sellOption}"
+        class="cursor-pointer hover:bg-white hover:text-black text-white font-semibold py-2 px-6 rounded-r-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">Sell</button>
+    </div> 
+    <div class="px-6 py-8" *ngIf="!sellOption">
+        <label class="font-semibold">Category:</label>
+        <select class="border-2 border-gray-700 rounded-lg col-span-2 py-2" (change)="onClickCategory($event)">
+            <option value="" disabled selected>Selecciona una categoría</option>
+            <option value="Ficción">Ficción</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Historia">Historia</option>
+            <option value="Autoayuda">Autoayuda</option>
+            <option value="Romance">Romance</option>
+            <option value="">Todas</option>
+        </select>
+    </div>
+</div>   
+<div class="flex justify-center">
+    
+    <p class="font-bold text-2xl">Publish a Book</p>
+    
+</div>
+<div class="flex flex-wrap gap-6 justify-center pb-30" *ngIf="!sellOption">
     <div *ngFor="let product of products">
         <div class="">
             <div (click)="onClick(product.id)" class="">    
                 <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]">
-                    <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105" [src]="product.foto" alt="{{ product.nombre }}"/>
+                    <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105" [src]="product.photo" alt="{{ product.name }}"/>
                 </div>
-                <h3 class="text-xl font-semibold">{{ product.nombre }}</h3>
-                <p><strong>Precio: </strong>{{ product.precio | currency }}</p>
+                <div class="h-15">
+                    <h3 class="text-xl font-semibold max-w-[300px]">{{ product.name }}</h3>
+                </div>
+                <p><strong>Precio: </strong>{{ product.price | currency }}</p>
             </div>
             <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickBuy(product)">Añadir al Carrito</button>
         </div>
     </div>    
+</div>
+<div *ngIf="sellOption && isLoggedIn">
+    <div class="pb-65" >
+        <div class="Reactive-Form font-sans bg-gray-100 border border-black px-6 py-8 rounded-lg shadow-lg mx-auto max-w-2xl">
+            <form [formGroup]="formBook">
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Name:</label>
+                    <input type="text" formControlName="name" class="border-2 border-gray-700 rounded-lg col-span-2">
+                    <div class="col-span-4" *ngIf="formBook.get('name')?.invalid && formBook.get('name')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('name')?.errors?.['required']">
+                            *Name is required
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Description:</label>
+                    <input type="text" formControlName="description" class="border-2 border-gray-700 rounded-lg col-span-2">
+                    <div class="col-span-4" *ngIf="formBook.get('description')?.invalid && formBook.get('description')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('description')?.errors?.['required']">
+                            *Description is required
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Price:</label>
+                    <input type="number" formControlName="price" class="border-2 border-gray-700 rounded-lg col-span-2">
+                    <div class="col-span-4" *ngIf="formBook.get('price')?.invalid && formBook.get('price')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('price')?.errors?.['required']">
+                            *Price is required
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Release Date:</label>
+                    <input type="date" formControlName="releaseDate" class="border-2 border-gray-700 rounded-lg col-span-2">
+                    <div class="col-span-4" *ngIf="formBook.get('releaseDate')?.invalid && formBook.get('releaseDate')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('releaseDate')?.errors?.['releaseDate']">
+                            *Release Date is required
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Category:</label>
+                    <select formControlName="category" class="border-2 border-gray-700 rounded-lg col-span-2">
+                        <option value="" disabled selected>Selecciona una categoría</option>
+                        <option value="Ficción">Ficción</option>
+                        <option value="Fantasía">Fantasía</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Autoayuda">Autoayuda</option>
+                        <option value="Romance">Romance</option>
+                    </select>
+                    <div class="col-span-4" *ngIf="formBook.get('category')?.invalid && formBook.get('category')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('category')?.errors?.['category']">
+                            *Category is required
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2 pb-4">
+                    <label>Photo URL:</label>
+                    <input type="text" formControlName="photo" class="border-2 border-gray-700 rounded-lg col-span-2">
+                    <div class="col-span-4" *ngIf="formBook.get('photo')?.invalid && formBook.get('photo')?.touched">
+                        <div class="text-red-300" *ngIf="formBook.get('photo')?.errors?.['required']">
+                            *The Photo URL is required
+                        </div>
+                    </div>
+                </div>
+                <button (click)="onSubmitBook()" class="font-sans text-white bg-gray-700 hover:bg-gray-600 rounded-lg px-4 py-2 mx-auto block" type="submit" [disabled]="!formBook.valid">Public Book</button>
+            </form>
+        </div>
+    </div>
+    <div class="pl-6 pb-30">
+        <button (click)="onClickSeeYourBooks()" class="py-2 px-4 bg-gray-700 rounded-lg text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">See Your Published Book</button>
+    </div>
+    <div class="flex flex-wrap gap-6 justify-center pb-30" *ngIf="seeYourBooks">
+        <div *ngFor="let product of yourProducts">
+            <div class="">
+                <div (click)="onClick(product.id)" class="">    
+                    <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]">
+                        <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105" [src]="product.photo" alt="{{ product.name }}"/>
+                    </div>
+                    <div class="h-15">
+                        <h3 class="text-xl font-semibold max-w-[300px] ">{{ product.name }}</h3>
+                    </div>    
+                    <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+                </div>
+                <div class="flex justify-between">   
+                    <button class="mt-4 w-[49%] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product.id)">Delete</button>
+                    <button class="mt-4 w-[49%] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick(product.id)">Edit</button>
+                </div> 
+            </div>
+        </div>    
+    </div>
 </div>
