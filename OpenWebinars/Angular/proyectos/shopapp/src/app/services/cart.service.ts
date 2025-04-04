@@ -15,10 +15,26 @@ export class CartService {
       });
     });
   }
-
+  
   addToCart(product: Book){
     const productData = this.products.get(product);
     this.products.set(product, !productData?1:productData+1)
+  }
+
+  deleteOneFromCart(product: Book){
+    const productData = this.products.get(product);
+    try{
+      this.products.set(product, !productData?0:productData-1)
+      
+    }catch(error) {
+      console.error("Ocurrió un error:", error);
+    } 
+    
+  }
+
+  deleteFromCart(product: Book){
+    const productData = this.products.get(product);
+    this.products.set(product, 0);
   }
 
   getCart(): Observable<[Book, number][]>{

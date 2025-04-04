@@ -13,6 +13,10 @@
             <p class="col-span-1 text-center">X</p>
             <p class="col-span-2">[Quantity: {{product[1]}}]</p>
             <p class="px-4 col-span-2">Total Product Price: {{product[0].price*product[1]}}</p>
+            <div>
+                <button class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDeleteOne(product[0])">Eliminar Uno</button>
+                <button class="px-4 py-2 border-gray-700 bg-gray-600 rounded-md text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product[0])">Eliminar</button>
+            </div>
         </div>
     </div>
         <div class="mx-auto flex max-w-200">

@@ -30,7 +30,11 @@ export class CartComponent implements OnInit{
             
           }
         );
-
+        this.refreshCart();
+    
+    
+  }
+  refreshCart(){
     this.cartService.getCart().subscribe((data) => {
       if (data && data.length > 0) {
         this.productsCart = data
@@ -40,7 +44,6 @@ export class CartComponent implements OnInit{
       }
       
     })
-    
   }
   getTotalPrice(){
     this.totalPrice = 0;
@@ -50,6 +53,31 @@ export class CartComponent implements OnInit{
   }
   redirectToProduct(){
     this.router.navigateByUrl('/home/products');
+  }
+  onClickDeleteOne(product: Book){
+    try{
+      this.cartService.deleteOneFromCart(product)
+      if(this.productsCart[0][1]===1 && this.productsCart.length === 1){
+        this.redirectToProduct();
+      }
+    }catch (error) {
+      console.error("Ocurrio un error",error);
+    }finally {
+      this.refreshCart();
+    }
+  }
+  onClickDelete(product: Book){
+    try{
+      this.cartService.deleteFromCart(product)
+      console.log("products: ",this.productsCart)
+      if(this.productsCart[0][1]===1 && this.productsCart.length === 1){
+        this.redirectToProduct();
+      }
+    }catch (error) {
+      console.error("Ocurrio un error",error);
+    }finally{
+      this.refreshCart();
+    }
   }
 
   onClickSendEmail(){

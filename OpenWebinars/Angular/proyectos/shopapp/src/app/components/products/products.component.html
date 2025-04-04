@@ -43,7 +43,7 @@
     </div>    
 </div>
 <div *ngIf="sellOption && isLoggedIn">
-    <div class="pb-65" >
+    <div class="pb-45" >
         <div class="Reactive-Form font-sans bg-gray-100 border border-black px-6 py-8 rounded-lg shadow-lg mx-auto max-w-2xl">
             <form [formGroup]="formBook">
                 <div class="grid grid-cols-4 gap-2 pb-4">
@@ -111,7 +111,7 @@
             </form>
         </div>
     </div>
-    <div class="pl-6 pb-30">
+    <div class="pb-30 flex justify-center">
         <button (click)="onClickSeeYourBooks()" class="py-2 px-4 bg-gray-700 rounded-lg text-white shadow-md transition duration-300 ease-in-out transform hover:scale-105">See Your Published Book</button>
     </div>
     <div class="flex flex-wrap gap-6 justify-center pb-30" *ngIf="seeYourBooks">
