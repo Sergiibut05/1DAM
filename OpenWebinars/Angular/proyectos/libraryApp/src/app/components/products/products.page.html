@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-note>Products</ion-note>
+  <div class="px-6 py-8">
+    <ion-label position="stacked">Filter:</ion-label>
+    <ion-select  (ionChange)="onClickCategory($event)" placeholder="Selecciona una categoría">
+        <ion-select-option value="" disabled selected>Selecciona una categoría</ion-select-option>
+        <ion-select-option value="Ficción">Ficción</ion-select-option>
+        <ion-select-option value="Fantasía">Fantasía</ion-select-option>
+        <ion-select-option value="Historia">Historia</ion-select-option>
+        <ion-select-option value="Autoayuda">Autoayuda</ion-select-option>
+        <ion-select-option value="Romance">Romance</ion-select-option>
+        <ion-select-option value="">Todas</ion-select-option>
+    </ion-select>
+  </div>
+  <!-- Vista móvil -->
+  <div *ngIf="isMobile" class="flex flex-col gap-6">
+    <div *ngFor="let product of products">
+      <ion-card class="flex flex-row border border-gray-300 shadow-md min-h-[180px]">
+        
+        <div class="w-2/5 flex items-center justify-center p-4 bg-gray-100">
+          <img
+            [src]="product.photo"
+            alt="{{ product.name }}"
+            class="rounded-lg shadow-xl max-h-48 object-contain transition-transform duration-300 ease-out hover:scale-105"
+          />
+        </div>
+
+        <div class="w-3/5 flex flex-col justify-between p-3">
+          <div>
+            <div class="flex justify-between">
+              <h3 class="text-lg font-semibold mb-1 pt-2">{{ product.name }}</h3>
+              <div class="">
+                <button shape="round" class="small-btn" [ngClass]="{ 'liked': isBookLiked(product), 'not-liked': !isBookLiked(product) }" (click)="onClickLike(product)">
+                  <ion-icon slot="icon-only" name="heart" color="light"></ion-icon>
+                </button>
+              </div>
+            </div>
+            <p class="text-sm white"><strong>Categoría:</strong> {{ product.category }}</p>
+            <p class="text-sm"><strong>Precio:</strong> {{ product.price | currency }}</p>
+          </div>
+
+          <div class="pt-4">
+            <ion-button expand="block" color="primary" (click)="onClickBuy(product)">
+              Añadir al Carrito
+            </ion-button>
+          </div>
+        </div>
+
+      </ion-card>
+    </div>
+  </div>
+
+
+  <!-- Vista escritorio -->
+  <div *ngIf="!isMobile" class="flex flex-wrap gap-6 justify-center pb-30">
+    <div *ngFor="let product of products">
+      <div>
+        <div (click)="onClick(product.id)">
+          <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]">
+            <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105"
+              [src]="product.photo" alt="{{ product.name }}" />
+          </div>
+          <div class="flex justify-between max-w-[300px] h-23">
+            <div class="">
+              <h3 class="text-xl font-semibold ">{{ product.name }}</h3>
+            </div>
+            <div class="">
+              <button shape="round" class="small-btn" [ngClass]="{ 'liked': isBookLiked(product), 'not-liked': !isBookLiked(product) }" (click)="onClickLike(product)">
+                <ion-icon slot="icon-only" name="heart" color="light"></ion-icon>
+              </button>
+            </div>
+          </div>
+          
+          <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+        </div>
+        <button
+          class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white !font-semibold !py-2 !px-4 !rounded-lg !shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+          (click)="onClickBuy(product)">Añadir al Carrito</button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start" class="pt-2">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title size="large">Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <div class="flex justify-center">
+      <div class="pt-6">
+        <div class="h-30 w-30 rounded-full overflow-hidden">
+          <img src="{{profilePhoto}}" alt="PhotoURL" class="h-full w-full object-cover" (click)="onClickSeePhoto()">
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 pt-6 pl-6">
+        <ion-button (click)="onClickSeePhoto()">Ver Foto</ion-button>
+        <ion-button (click)="createNewProfilePhoto()">Cambiar Foto</ion-button>
+      </div>
+    </div>
+    <p class="text-xl text-center pt-20"><strong>User Account Information</strong></p>
+    <div class="" *ngIf="userData">
+      <p class=""><strong>Username: </strong>{{userData.displayName}}</p>
+      <p class=""><strong>Email: </strong>{{userData.email}}</p>
+      <p class=""><strong>UID: </strong>{{userData.uid}}</p>
+    </div>
+    
+  </div>
+</ion-content>
+<div 
+  *ngIf="isPhotoModalOpen" 
+  class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+>
+  <div class="relative">
+    <img 
+      [src]="profilePhoto" 
+      alt="Foto en grande" 
+      class="max-w-xs md:max-w-md border-4 border-white shadow-2xl transition-transform transform scale-100"
+    />
+    <ion-button 
+      fill="clear" 
+      color="light" 
+      class="absolute bottom-25 left-25 text-white" 
+      (click)="closePhotoModal()"
+    >
+      ✕
+    </ion-button>
+  </div>
+</div>

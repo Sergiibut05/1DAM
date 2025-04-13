@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="flex justify-between pt-4">
+    <p>Dark Theme</p>
+    <ion-toggle aria-label="Primary toggle" color="primary" [(ngModel)]="isDarkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+  </div>
+</ion-content>

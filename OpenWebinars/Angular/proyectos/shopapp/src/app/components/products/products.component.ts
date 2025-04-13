@@ -107,7 +107,7 @@ export class ProductsComponent implements OnInit{
 
   onClickSeeYourBooks() {
     this.userbookservice.getAllBooksReferencesByUser(this.userData?.email!).subscribe((uidBooks) => {
-      const bookCollection: any[] = []
+      const bookCollection: Book[] = []
       uidBooks.forEach((uidbook) => {
         this.bookService.getBookById(uidbook).subscribe((book) => {
           if(bookCollection.includes(book)){

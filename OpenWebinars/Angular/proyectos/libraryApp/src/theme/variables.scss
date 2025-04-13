@@ -1,0 +1,37 @@
+:root {
+  /* Colores por defecto (modo claro) */
+  --ion-background-color: #ffffff;
+  --ion-text-color: #000000;
+  --ion-toolbar-background: #f8f8f8;
+  --ion-item-background: #ffffff;
+  --ion-card-background: #f0f0f0;
+  
+  --ion-color-primary: #3880ff; /* Ajusta según el color principal */
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-medium-shade: #616e7e;
+}
+
+.dark {
+  /* Colores para el modo oscuro */
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+  --ion-toolbar-background: #1f1f1f;
+  --ion-item-background: #1c1c1d;
+  --ion-card-background: #1e1e1e;
+
+
+  /* Ajustar colores específicos para el modo oscuro */
+  --ion-color-primary: #3880ff; /* Puedes cambiar este color si lo deseas #4cd964;*/
+  --ion-color-primary-rgb: 76, 217, 100;
+  --ion-color-medium-shade: #a8a8a8; 
+
+  h3 {
+    color: #ffffff;
+  }
+  p {
+    color: #cdcdcd;
+  }
+  ion-list-header{
+    color: #ffffff;
+  }
+}
