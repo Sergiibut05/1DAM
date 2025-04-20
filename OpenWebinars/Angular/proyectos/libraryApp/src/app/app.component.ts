@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet, IonRouterLink, IonImg } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { mailOutline, mailSharp, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, bookmarkOutline, bookmarkSharp, star, bookSharp, bookOutline, settingsOutline, settingsSharp } from 'ionicons/icons';
+import { mailOutline, mailSharp, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, bookmarkOutline, bookmarkSharp, star, bookSharp, bookOutline, settingsOutline, settingsSharp, planetOutline, planetSharp, cartOutline, cartSharp } from 'ionicons/icons';
 import { AuthService } from './services/auth.service';
 import { User } from 'firebase/auth';
 import { CommonModule } from '@angular/common';
@@ -16,9 +16,12 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
   public userData: User | null = null;
+  public userPhoto = '';
   public appPages = [
+    { title: 'Inicio', url: '/book-animation', icon: 'planet' },
     { title: 'Login or Register', url: '/registration', icon: 'mail' },
     { title: 'Products', url: '/products', icon: 'book' },
+    { title: 'Cart', url: '/cart', icon: 'cart' },
     { title: 'Favorites', url: '/favourites', icon: 'heart' },
     { title: 'Your Books', url: '/your-products', icon: 'archive' },
     { title: 'Trash', url: '/folder/trash', icon: 'trash' },
@@ -26,10 +29,19 @@ export class AppComponent {
   ];
   constructor(private authService: AuthService, private router: Router) {
     
-    authService.getCurrentFireStoreUser().then((user) => {
+    authService.user$.subscribe((user) => {
       this.userData = user as User;
+      if(user){
+        authService.getCurrentFireStoreUser().then((userf) => {
+          if(userf?.photoURL){
+            this.userPhoto = userf?.photoURL;
+          }else{
+            this.userPhoto = '.assets/profile.png'
+          }
+        })
+      }
     })
-    addIcons({ mailOutline, mailSharp, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, bookmarkOutline, bookmarkSharp, star , bookOutline, bookSharp, settingsOutline, settingsSharp});
+    addIcons({ mailOutline, mailSharp, paperPlaneSharp, heartOutline, heartSharp, archiveOutline, archiveSharp, trashOutline, trashSharp, bookmarkOutline, bookmarkSharp, star , bookOutline, bookSharp, settingsOutline, settingsSharp, planetOutline, planetSharp, cartOutline, cartSharp});
   }
 
   onClickProfile(){

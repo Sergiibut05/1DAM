@@ -13,8 +13,41 @@
       <ion-title size="large">Settings</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="flex justify-between pt-4">
-    <p>Dark Theme</p>
-    <ion-toggle aria-label="Primary toggle" color="primary" [(ngModel)]="isDarkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+  <div class="flex flex-col">
+    <div>
+      <h1>Themes</h1>
+      <div class="flex justify-between pt-4 pl-5">
+        <p>Dark Theme</p>
+        <ion-toggle aria-label="Primary toggle" color="primary" [(ngModel)]="isDarkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
+      </div>
+      <h1>Main Color</h1>
+      <div class="flex">
+        <ion-label position="stacked" class="pl-5">Colors:</ion-label>
+        <ion-select placeholder="Selecciona un Color" (ionChange)="onClickColor($event)" class="pt-4">
+            <ion-select-option value="blue">Default(Blue)</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+            <ion-select-option value="green">Green</ion-select-option>
+            <ion-select-option value="yellow">Yellow</ion-select-option>
+            <ion-select-option value="pink">Pink</ion-select-option>
+        </ion-select>
+      </div>
+      <h1>Text Size</h1>
+      <div class="flex">
+        <ion-label position="stacked" class="pl-5">Size:</ion-label>
+        <ion-select placeholder="Selecciona un Color" (ionChange)="onClickSize($event)" class="pt-4">
+            <ion-select-option value="font-size-small">Small</ion-select-option>
+            <ion-select-option value="font-size-medium">Default(Medium)</ion-select-option>
+            <ion-select-option value="font-size-large">Large</ion-select-option>
+            <ion-select-option value="font-size-xl">Xl</ion-select-option>
+        </ion-select>
+      </div>
+    </div>
+    <div class="pt-35" *ngIf="userData">
+      <h1 class="text-red-700">Account Settings</h1>
+      <div class="flex justify-between">
+        <p class="text-red-600">Log Out:</p>
+        <ion-button color="danger" (click)="onClickLogOut()">Log Out</ion-button>
+      </div>
+    </div>
   </div>
 </ion-content>

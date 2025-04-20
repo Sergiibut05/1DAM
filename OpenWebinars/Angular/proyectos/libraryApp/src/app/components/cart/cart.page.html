@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-button expand="block" color="medium" (click)="redirectToProduct()">
+    Volver
+  </ion-button>
+
+  <ng-container *ngIf="productsCart.length > 0; else emptyCart">
+    <ion-text class="ion-text-center ion-padding-vertical">
+      <h2><strong>Your Cart</strong></h2>
+    </ion-text>
+
+    <div *ngFor="let product of productsCart" class="ion-padding-vertical">
+      <ion-item>
+        <ion-img slot="start" [src]="product[0].photo" [alt]="product[0].name" style="width: 40px; height: 40px;"></ion-img>
+        <ion-label>
+          <h3>{{product[0].name}}</h3>
+          <p>Price: {{product[0].price}}</p>
+          <p>Qty: {{product[1]}}</p>
+          <p>Total: {{product[0].price * product[1]}}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button size="small" color="danger" (click)="onClickDeleteOne(product[0])">
+            Eliminar Uno
+          </ion-button>
+          <ion-button size="small" color="danger" (click)="onClickDelete(product[0])">
+            Eliminar
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </div>
+
+    <ion-footer class="ion-padding">
+      <ion-item lines="none">
+        <ion-label><strong>Total:</strong> {{totalPrice | currency}}</ion-label>
+        <ion-button color="dark">Comprar</ion-button>
+      </ion-item>
+    </ion-footer>
+  </ng-container>
+
+  <ng-template #emptyCart>
+    <ion-text class="ion-text-center">
+      <p><strong>The cart is empty.</strong></p>
+    </ion-text>
+  </ng-template>
+
+</ion-content>

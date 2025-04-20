@@ -56,9 +56,9 @@
           </div>
           <p><strong>Precio: </strong>{{ product.price | currency }}</p>
         </div>
-        <button
-          class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white !font-semibold !py-2 !px-4 !rounded-lg !shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-          (click)="onClickBuy(product)">Añadir al Carrito</button>
+        <ion-button
+          class="mt-4 w-full !rounded-lg !shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+          (click)="onClickBuy(product)">Añadir al Carrito</ion-button>
       </div>
     </div>
   </div>

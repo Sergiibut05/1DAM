@@ -11,7 +11,7 @@
   <ion-note>Products</ion-note>
   <div class="px-6 py-8">
     <ion-label position="stacked">Filter:</ion-label>
-    <ion-select  (ionChange)="onClickCategory($event)" placeholder="Selecciona una categoría">
+    <ion-select (ionChange)="onClickCategory($event)" placeholder="Selecciona una categoría">
         <ion-select-option value="" disabled selected>Selecciona una categoría</ion-select-option>
         <ion-select-option value="Ficción">Ficción</ion-select-option>
         <ion-select-option value="Fantasía">Fantasía</ion-select-option>
@@ -82,9 +82,9 @@
           
           <p><strong>Precio: </strong>{{ product.price | currency }}</p>
         </div>
-        <button
-          class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white !font-semibold !py-2 !px-4 !rounded-lg !shadow-md transition duration-300 ease-in-out transform hover:scale-105"
-          (click)="onClickBuy(product)">Añadir al Carrito</button>
+        <ion-button
+          class="mt-4 w-full transition duration-300 ease-in-out transform hover:scale-105"
+          (click)="onClickBuy(product)">Añadir al Carrito</ion-button>
       </div>
     </div>
   </div>

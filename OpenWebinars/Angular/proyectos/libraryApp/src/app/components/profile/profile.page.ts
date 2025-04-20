@@ -17,17 +17,19 @@ export class ProfilePage implements OnInit {
   protected userData: any;
   protected isPhotoModalOpen = false;
   protected profilePhoto = '../assets/profile.png';
-  public cropCoordinates: any = null;
   constructor(
     private authService: AuthService,
-    public photoService: PhotoService
+    public photoService: PhotoService,
+    public fireStorage: FireStorageService
   ) {
     authService.user$.subscribe((user) => {
       if(user){
         this.userData = user;
-        if(user.photoURL){
-          this.profilePhoto = user.photoURL
-        }
+        authService.getCurrentFireStoreUser().then((userf) => {
+          if(userf?.photoURL){
+            this.profilePhoto = userf.photoURL
+          }
+        })
       }
     })
    }
@@ -47,7 +49,13 @@ export class ProfilePage implements OnInit {
     try{
       const newPhotoUrl = await this.photoService.makeNewProfilePhoto();
       if(newPhotoUrl){
-        this.profilePhoto = newPhotoUrl[0];
+        if(this.profilePhoto.indexOf('firebase')){
+          const oldPhotoUrl = this.profilePhoto;
+          this.profilePhoto = newPhotoUrl[0];
+          this.fireStorage.deleteFileFromUrl(oldPhotoUrl);
+        }else{
+          this.profilePhoto = newPhotoUrl[0];
+        }
       }
     }catch (error) {
       console.error("Error al sacar la foto: ", error);

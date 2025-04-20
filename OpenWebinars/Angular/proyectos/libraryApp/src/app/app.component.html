@@ -4,20 +4,25 @@
       <ion-content>
         <ion-list id="inbox-list">
           <div *ngIf="!userData">
-            <ion-list-header>Inbox</ion-list-header>
-            <ion-note>hi&#64;ionicframework.com</ion-note>
-          </div>
-          <div *ngIf="userData" class="flex" (click)="onClickProfile()">
-            <div class="w-18 h-18 rounded-full overflow-hidden">
-              <img
-              src="{{userData.photoURL}}" 
-              alt="PhotoURL">
-            </div>
-            <div>
-              <ion-list-header>{{userData.displayName}}</ion-list-header>
-              <ion-note>{{userData.email}}</ion-note>
+            <div (click)="onClickProfile()">
+              <ion-list-header>Inbox</ion-list-header>
+              <ion-note>hi&#64;ionicframework.com</ion-note>
             </div>
           </div>
+          <ion-menu-toggle auto-hide="true">
+            <div *ngIf="userData" class="flex" (click)="onClickProfile()">
+              <div class="w-18 h-18 rounded-full overflow-hidden">
+                <img
+                src="{{userPhoto}}" 
+                alt="PhotoURL" class="h-full w-full object-cover">
+              </div>
+              <div>
+                <ion-list-header>{{userData.displayName}}</ion-list-header>
+                <ion-note>{{userData.email}}</ion-note>
+              </div>
+            </div>
+          </ion-menu-toggle>
+          
           
 
           @for (p of appPages; track p; let i = $index) {

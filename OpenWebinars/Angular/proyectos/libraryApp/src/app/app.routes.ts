@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/inbox',
+    redirectTo: 'book-animation',
     pathMatch: 'full',
   },
   {
@@ -35,5 +35,14 @@ export const routes: Routes = [
   {
     path: 'profile',
     loadComponent: () => import('./components/profile/profile.page').then( m => m.ProfilePage)
+  },
+  {
+    path: 'book-animation',
+    loadComponent: () => import('./components/book-animation/book-animation.page').then( m => m.BookAnimationPage)
+  },
+  {
+    path: 'cart',
+    loadComponent: () => import('./components/cart/cart.page').then( m => m.CartPage)
   }
+
 ];

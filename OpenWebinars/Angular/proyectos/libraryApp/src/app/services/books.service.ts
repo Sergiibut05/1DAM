@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from "@angular/core";
-import { Observable } from "rxjs";
-import {Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, setDoc, updateDoc} from "@angular/fire/firestore";
+import { filter, from, map, Observable, take } from "rxjs";
+import {DocumentReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, getDoc, setDoc, updateDoc} from "@angular/fire/firestore";
 import { Book } from "../interfaces/book.interface";
 
 @Injectable({
@@ -46,9 +46,17 @@ export class BookCRUD {
     }
 
     getBookById(bookId: string): Observable<Book> {
-        const userDoc = doc(this.db, `books/${bookId}`);
-        return docData(userDoc, { idField: 'id' }) as Observable<Book>; 
-        
+        const userDocRef: DocumentReference<Book> = doc(this.db, `books/${bookId}`) as DocumentReference<Book>;
+      
+        return from(getDoc(userDocRef)).pipe(
+          map(snapshot => {
+            if (!snapshot.exists()) {
+              throw new Error(`Libro ${bookId} no existe`);
+            }
+      
+            return { id: snapshot.id, ...(snapshot.data() as Book) };
+          })
+        );
     }
     
 }

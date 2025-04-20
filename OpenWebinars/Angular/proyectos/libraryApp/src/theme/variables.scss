@@ -5,13 +5,15 @@
   --ion-toolbar-background: #f8f8f8;
   --ion-item-background: #ffffff;
   --ion-card-background: #f0f0f0;
-  
-  --ion-color-primary: #3880ff; /* Ajusta según el color principal */
-  --ion-color-primary-rgb: 56, 128, 255;
-  --ion-color-medium-shade: #616e7e;
+  ion-header {
+    padding-top: env(safe-area-inset-top);
+  }
 }
 
 .dark {
+  ion-header {
+    padding-top: env(safe-area-inset-top);
+  }
   /* Colores para el modo oscuro */
   --ion-background-color: #121212;
   --ion-text-color: #ffffff;
@@ -21,9 +23,6 @@
 
 
   /* Ajustar colores específicos para el modo oscuro */
-  --ion-color-primary: #3880ff; /* Puedes cambiar este color si lo deseas #4cd964;*/
-  --ion-color-primary-rgb: 76, 217, 100;
-  --ion-color-medium-shade: #a8a8a8; 
 
   h3 {
     color: #ffffff;
@@ -34,4 +33,135 @@
   ion-list-header{
     color: #ffffff;
   }
+  ion-alert .alert-radio-label {
+    color: #cecece; // Cambia este valor al color que desees
+  }
+  ion-alert {
+    --background: #000000; // Fondo del cuadro completo
+  }
+  ion-datetime {
+    --background: #222222; 
+  }
+  ion-picker{
+    --background: #222222; 
+  }
+}
+
+.blue {
+  --ion-color-primary: #3880ff; // Azul original
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-medium-shade: #616e7e;
+}
+
+.green {
+  --ion-color-primary: #30d158; // Verde brillante de iOS
+  --ion-color-primary-rgb: 48, 209, 88;
+  --ion-color-medium-shade: #4caf50;
+}
+
+.red {
+  --ion-color-primary: #ff3b30; // Rojo Apple
+  --ion-color-primary-rgb: 255, 59, 48;
+  --ion-color-medium-shade: #c62828;
+}
+
+.yellow {
+  --ion-color-primary: #ffd966; // Amarillo crema
+  --ion-color-primary-rgb: 255, 217, 102;
+  --ion-color-medium-shade: #f4b400;
+}
+
+.pink {
+  --ion-color-primary: #ff69b4; // Rosa fuerte (Hot Pink)
+  --ion-color-primary-rgb: 255, 105, 180;
+  --ion-color-medium-shade: #d81b60;
+}
+
+.font-size-small {
+  font-size: 14px;
+}
+
+.font-size-small p,
+.font-size-small ion-note,
+.font-size-small ion-label,
+.font-size-small ion-list-header {
+  font-size: 14px;
+}
+
+.font-size-small h3 {
+  font-size: 16px;
+}
+
+.font-size-small h1,
+.font-size-small ion-title {
+  font-size: 18px;
+}
+
+
+/* ------------------------------ */
+
+.font-size-medium {
+  font-size: 16px;
+}
+
+.font-size-medium p,
+.font-size-medium ion-note,
+.font-size-medium ion-label,
+.font-size-medium ion-list-header {
+  font-size: 16px;
+}
+
+.font-size-medium h3 {
+  font-size: 18px;
+}
+
+.font-size-medium h1,
+.font-size-medium ion-title {
+  font-size: 20px;
+}
+
+
+/* ------------------------------ */
+
+.font-size-large {
+  font-size: 18px;
+}
+
+.font-size-large p,
+.font-size-large ion-note,
+.font-size-large ion-label,
+.font-size-large ion-list-header {
+  font-size: 18px;
+}
+
+.font-size-large h3 {
+  font-size: 20px;
+}
+
+.font-size-large h1,
+.font-size-large ion-title {
+  font-size: 22px;
+}
+
+
+/* ------------------------------ */
+
+.font-size-xl {
+  font-size: 20px;
+}
+
+.font-size-xl p,
+.font-size-xl ion-note,
+.font-size-xl ion-label,
+.font-size-xl ion-list-header {
+  font-size: 20px;
+}
+
+.font-size-xl h3 {
+  font-size: 22px;
+}
+
+.font-size-xl h1,
+.font-size-xl ion-title {
+  font-size: 24px;
 }
