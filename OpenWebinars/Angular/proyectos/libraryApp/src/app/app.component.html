@@ -1,6 +1,6 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+  <ion-split-pane contentId="main-content" when="false">
+    <ion-menu contentId="main-content" type="overlay" when="false">
       <ion-content>
         <ion-list id="inbox-list">
           <div *ngIf="!userData">
@@ -9,8 +9,8 @@
               <ion-note>hi&#64;ionicframework.com</ion-note>
             </div>
           </div>
-          <ion-menu-toggle auto-hide="true">
-            <div *ngIf="userData" class="flex" (click)="onClickProfile()">
+          <ion-menu-toggle>
+            <div *ngIf="userData" class="fondoPerfil flex items-center gap-4 p-4 border-b border-gray-300" (click)="onClickProfile()">
               <div class="w-18 h-18 rounded-full overflow-hidden">
                 <img
                 src="{{userPhoto}}" 
@@ -34,7 +34,21 @@
             </ion-menu-toggle>
           }
         </ion-list>
-        
+        <div>
+          <ion-fab slot="fixed" vertical="bottom" horizontal="start" edge="true" class="pb-3">
+            <ion-fab-button>
+              <ion-icon name="language"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="end">
+              <ion-fab-button (click)="changeLanguage('es')">
+                <p>ES</p>
+              </ion-fab-button>
+              <ion-fab-button (click)="changeLanguage('en')">
+                <p>EN</p>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+        </div>
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>

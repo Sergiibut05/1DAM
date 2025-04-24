@@ -7,13 +7,14 @@ import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/book.interface';
 import { User } from 'firebase/auth';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
   styleUrls: ['./cart.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonText, IonItem, IonImg, IonLabel, IonButtons, IonFooter]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonText, IonItem, IonImg, IonLabel, IonButtons, IonFooter, TranslatePipe]
 })
 export class CartPage implements OnInit {
   public productsCart: [Book, number][] = [];

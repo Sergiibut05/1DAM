@@ -4,13 +4,14 @@ import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModu
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonInput, IonItem, IonInputPasswordToggle, IonButtons, IonMenuButton, IonLabel, IonNote, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.page.html',
   styleUrls: ['./registration.page.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule ,IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonInput, IonItem, IonInputPasswordToggle, IonButtons, IonMenuButton, IonLabel, IonNote, IonButton, IonIcon]
+  imports: [ReactiveFormsModule ,IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonList, IonInput, IonItem, IonInputPasswordToggle, IonButtons, IonMenuButton, IonLabel, IonNote, IonButton, IonIcon, TranslatePipe]
 })
 export class RegistrationPage implements OnInit {
   public formEntrada: FormGroup;

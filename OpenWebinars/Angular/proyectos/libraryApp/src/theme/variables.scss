@@ -8,9 +8,15 @@
   ion-header {
     padding-top: env(safe-area-inset-top);
   }
+  .fondoPerfil {
+    background: linear-gradient(to bottom, white, #efefef);
+  }
 }
 
 .dark {
+  .fondoPerfil{
+    background: linear-gradient(to bottom, #1c1c1d, #3a3a3a);
+  }
   ion-header {
     padding-top: env(safe-area-inset-top);
   }

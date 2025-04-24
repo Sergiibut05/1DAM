@@ -3,20 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Login or Register</ion-title>
+    <ion-title>{{'MENU.LOGIN' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" *ngIf="!isLoggedIn">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Login or Register</ion-title>
+      <ion-title size="large">{{'MENU.LOGIN' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <div *ngIf="!isLoggedIn" class="pb-20 pt-20 text-center">
     <div id="login" class="text-center flex justify-center gap-5">
-      <ion-button color="dark" [style.--padding-end]="'1.6pc'" [style.--padding-start]="'1.6pc'" (click)="onClickLogin()">Login</ion-button>
-      <ion-button color="dark" (click)="onClickRegister()">Register</ion-button>
+      <ion-button color="dark" [style.--padding-end]="'1.6pc'" [style.--padding-start]="'1.6pc'" (click)="onClickLogin()">{{'REGISTRATION.LOGIN' | translate}}</ion-button>
+      <ion-button color="dark" (click)="onClickRegister()">{{'REGISTRATION.REGISTER' | translate}}</ion-button>
     </div>
     <ion-note color="dark">ó</ion-note>
     <div class="flex justify-center pt-2">
@@ -31,17 +31,17 @@
   
   <form [formGroup]="formEntrada" (ngSubmit)="onSubmitRegister()" *ngIf="registerOption">
     <div>
-      <p class=" pl-2 font-bold text-3xl">Register</p>
+      <p class=" pl-2 font-bold text-3xl">{{'REGISTRATION.REGISTER' | translate}}</p>
     </div>
     <ion-list>
       
       <!-- Username -->
       <ion-item>
-        <ion-label position="floating">Username</ion-label>
+        <ion-label position="floating">{{'REGISTRATION.USERNAME' | translate}}</ion-label>
         <ion-input formControlName="username"></ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formEntrada.get('username')?.invalid && formEntrada.get('username')?.touched">
-        *Username is required
+        *{{'REGISTRATION.USERREQUIRED' | translate}}
       </ion-note>
   
       <!-- Email -->
@@ -50,45 +50,45 @@
         <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formEntrada.get('email')?.invalid && formEntrada.get('email')?.touched">
-        <div *ngIf="formEntrada.get('email')?.errors?.['required']">*Email is required</div>
-        <div *ngIf="formEntrada.get('email')?.errors?.['email']">*Enter a valid email</div>
+        <div *ngIf="formEntrada.get('email')?.errors?.['required']">*{{'REGISTRATION.EMAILREQUIRED' | translate}}</div>
+        <div *ngIf="formEntrada.get('email')?.errors?.['email']">*{{'REGISTRATION.VALIDEMAIL' | translate}}</div>
       </ion-note>
   
       <!-- Password -->
       <ion-item>
-        <ion-label position="floating">Password</ion-label>
+        <ion-label position="floating">{{'REGISTRATION.PASSWORD' | translate}}</ion-label>
         <ion-input formControlName="password" type="password">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formEntrada.get('password')?.invalid && formEntrada.get('password')?.touched">
-        <div *ngIf="formEntrada.get('password')?.errors?.['required']">*Password is required</div>
-        <div *ngIf="formEntrada.get('password')?.errors?.['minlength']">*Minimum 6 characters</div>
-        <div *ngIf="formEntrada.get('password')?.errors?.['pattern']">*Only letters and numbers</div>
+        <div *ngIf="formEntrada.get('password')?.errors?.['required']">*{{'REGISTRATION.PASSWORDREQUIRED' | translate}}</div>
+        <div *ngIf="formEntrada.get('password')?.errors?.['minlength']">*{{'REGISTRATION.PASSWORDMIN' | translate}}</div>
+        <div *ngIf="formEntrada.get('password')?.errors?.['pattern']">*{{'REGISTRATION.CONFIRMREQUIERED' | translate}}</div>
       </ion-note>
   
       <!-- Confirm Password -->
       <ion-item>
-        <ion-label position="floating">Repeat Password</ion-label>
+        <ion-label position="floating">{{'REGISTRATION.REPEATPASSWORD' | translate}}</ion-label>
         <ion-input formControlName="confirmPassword" type="password">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formEntrada.get('confirmPassword')?.invalid && formEntrada.get('confirmPassword')?.touched">
-        <div *ngIf="formEntrada.get('confirmPassword')?.errors?.['required']">*Confirmation is required</div>
-        <div *ngIf="formEntrada.get('confirmPassword')?.errors?.['notSame']">*Passwords do not match</div>
+        <div *ngIf="formEntrada.get('confirmPassword')?.errors?.['required']">*{{'REGISTRATION.CONFIRMREQUIERED' | translate}}</div>
+        <div *ngIf="formEntrada.get('confirmPassword')?.errors?.['notSame']">*{{'REGISTRATION.NOTMATCH' | translate}}</div>
       </ion-note>
   
     </ion-list>
     <ion-button class="mt-8" type="submit" expand="block" [disabled]="!formEntrada.valid" (click)="onSubmitRegister()">
       <ion-icon slot="start" name="star"></ion-icon>
-      Register
+      {{'REGISTRATION.REGISTER' | translate}}
     </ion-button>
   </form>
 
   <form [formGroup]="formLogin" (ngSubmit)="onSubmitRegister()" *ngIf="!registerOption">
     <div>
-      <p class=" pl-2 font-bold text-3xl">Login</p>
+      <p class=" pl-2 font-bold text-3xl">{{'REGISTRATION.LOGIN' | translate}}</p>
     </div>
     <ion-list>
   
@@ -98,33 +98,33 @@
         <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
-        <div *ngIf="formLogin.get('email')?.errors?.['required']">*Email is required</div>
-        <div *ngIf="formLogin.get('email')?.errors?.['email']">*Enter a valid email</div>
+        <div *ngIf="formLogin.get('email')?.errors?.['required']">*{{'REGISTRATION.EMAILREQUIRED' | translate}}</div>
+        <div *ngIf="formLogin.get('email')?.errors?.['email']">*{{'REGISTRATION.VALIDEMAIL' | translate}}</div>
       </ion-note>
   
       <!-- Password -->
       <ion-item>
-        <ion-label position="floating">Password</ion-label>
+        <ion-label position="floating">{{'REGISTRATION.PASSWORD' | translate}}</ion-label>
         <ion-input formControlName="password" type="password">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
       </ion-item>
       <ion-note color="danger" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
-        <div *ngIf="formLogin.get('password')?.errors?.['required']">*Password is required</div>
-        <div *ngIf="formLogin.get('password')?.errors?.['minlength']">*Minimum 6 characters</div>
-        <div *ngIf="formLogin.get('password')?.errors?.['pattern']">*Only letters and numbers</div>
+        <div *ngIf="formLogin.get('password')?.errors?.['required']">*{{'REGISTRATION.PASSWORDREQUIRED' | translate}}</div>
+        <div *ngIf="formLogin.get('password')?.errors?.['minlength']">*{{'REGISTRATION.CONFIRMREQUIERED' | translate}}</div>
+        <div *ngIf="formLogin.get('password')?.errors?.['pattern']">*{{'REGISTRATION.CONFIRMREQUIERED' | translate}}</div>
       </ion-note>
   
     </ion-list>
     <ion-button class="mt-8" type="submit" expand="block" [disabled]="!formEntrada.valid" (click)="onSubmitLogin()">
       <ion-icon slot="start" name="star"></ion-icon>
-      Login
+      {{'REGISTRATION.LOGIN' | translate}}
     </ion-button>
   </form>
   
 </ion-content>
 <ion-content *ngIf="isLoggedIn">
   <div class="flex justify-center pt-20">
-    <ion-note color="">Ya estás Logueado</ion-note>
+    <ion-note color="">{{'REGISTRATION.ALREADY' | translate}}</ion-note>
   </div>
 </ion-content>

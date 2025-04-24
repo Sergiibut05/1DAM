@@ -5,23 +5,29 @@ import { IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonTitle, 
 import { AuthService } from 'src/app/services/auth.service';
 import { PhotoService } from '../../services/photo.service';
 import { FireStorageService } from 'src/app/services/fire-storage.service';
+import { LanguageService } from 'src/app/services/language.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonMenuButton, IonButtons]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonMenuButton, IonButtons, TranslatePipe]
 })
 export class ProfilePage implements OnInit {
   protected userData: any;
   protected isPhotoModalOpen = false;
   protected profilePhoto = '../assets/profile.png';
+  public currentLang: string;
   constructor(
     private authService: AuthService,
     public photoService: PhotoService,
-    public fireStorage: FireStorageService
+    public fireStorage: FireStorageService,
+    private languageService: LanguageService
   ) {
+    this.currentLang = this.languageService.getCurrentLang();
+
     authService.user$.subscribe((user) => {
       if(user){
         this.userData = user;

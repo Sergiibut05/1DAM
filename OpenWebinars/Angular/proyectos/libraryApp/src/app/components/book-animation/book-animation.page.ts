@@ -14,13 +14,14 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-book-animation',
   templateUrl: './book-animation.page.html',
   styleUrls: ['./book-animation.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonButton]
+  imports: [CommonModule, FormsModule, IonButton, TranslatePipe]
 })
 export class BookAnimationPage implements AfterViewInit {
   @ViewChild('rendererContainer', { static: false }) rendererContainer!: ElementRef;

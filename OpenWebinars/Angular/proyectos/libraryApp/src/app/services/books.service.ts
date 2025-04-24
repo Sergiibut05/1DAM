@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from "@angular/core";
 import { filter, from, map, Observable, take } from "rxjs";
-import {DocumentReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, docData, getDoc, setDoc, updateDoc} from "@angular/fire/firestore";
+import {CollectionReference, DocumentReference, Firestore, QueryDocumentSnapshot, addDoc, collection, collectionData, deleteDoc, doc, docData, getDoc, getDocs, limit, orderBy, query, setDoc, startAfter, updateDoc, where} from "@angular/fire/firestore";
 import { Book } from "../interfaces/book.interface";
 
 @Injectable({
@@ -57,6 +57,39 @@ export class BookCRUD {
             return { id: snapshot.id, ...(snapshot.data() as Book) };
           })
         );
+    }
+
+    async getPaginated(limitCount: number, lastDoc?: QueryDocumentSnapshot<Book>, category?: string): Promise<{ books: Book[], lastDoc?: QueryDocumentSnapshot<Book> }> {
+        const booksRef = collection(this.db, 'books') as CollectionReference<Book>;
+      
+        let q;
+      
+        if (category) {
+          q = query(
+            booksRef,
+            where("category", "==", category), // Filtrar por categoría
+            orderBy('name'),
+            startAfter(lastDoc || 0),
+            limit(limitCount)
+          );
+        } else {
+          q = query(
+            booksRef,
+            orderBy('name'),
+            startAfter(lastDoc || 0),
+            limit(limitCount)
+          );
+        }
+      
+        const snapshot = await getDocs(q);
+        const books: Book[] = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+      
+        const newLastDoc = snapshot.docs[snapshot.docs.length - 1];
+      
+        return { books, lastDoc: newLastDoc };
     }
     
 }

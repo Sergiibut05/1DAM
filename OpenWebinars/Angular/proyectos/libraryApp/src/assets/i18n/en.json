@@ -1,0 +1,90 @@
+{
+    "MENU":{
+        "INIT": "Init",
+        "LOGIN": "Login o Register",
+        "PRODUCTS": "Products",
+        "CART": "Cart",
+        "FAVORITES": "Favorites",
+        "YOURBOOKS": "Your Books",
+        "SETTINGS": "Settings"
+    },
+    "PROFILE":{
+        "PROFILE": "Profile",
+        "SEEPHOTO": "See Photo",
+        "CHANGEPHOTO": "Change Photo",
+        "INFORMATION": "User Account Information"
+    },
+    "PRODUCTS":{
+        "PRODUCTS": "Products",
+        "FILTER": "Filter",
+        "SELECT": "Select a Category",
+        "FICTION": "Fiction",
+        "FANTASY": "Fantasy",
+        "HISTORY": "History",
+        "SELFHELP": "Selfhelp",
+        "ROMANCE": "Romance",
+        "ALL": "All",
+        "PRICE": "Price",
+        "ADD": "Add to Cart",
+        "CATEGORY": "Category",
+        "FAVORITES": "Favorites"
+    },
+    "YOURPRODUCTS":{
+        "YOURPRODUCTS": "Your Products",
+        "WANTPUBLISH": "Want to Publish a Book?",
+        "CREATE": "Create",
+        "DELETE": "Delete",
+        "EDIT": "Edit"
+    },
+    "SETTINGS":{
+        "SETIINGS": "Settings",
+        "THEMES": "Themes",
+        "DARKTHEME": "Dark Theme",
+        "MAINCOLOR": "Main Color",
+        "SELECTCOLOR": "Select a Color",
+        "COLOR": "Color",
+        "BLUE": "Default(Blue)",
+        "RED": "Red",
+        "GREEN": "Green",
+        "YELLOW": "Yellow",
+        "PINK": "Pink",
+        "TEXTSIZE": "Text Size",
+        "SIZE": "Size",
+        "SMALL": "Small",
+        "MEDIUM": "Default(Medium)",
+        "LARGE": "Large",
+        "XL": "XL",
+        "ACCOUNT": "Account Settings",
+        "LOGOUT": "Log Out" 
+    },
+    "REGISTRATION": {
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "USERNAME": "Username",
+        "Email": "Email",
+        "PASSWORD": "Password",
+        "REPEATPASSWORD": "Confirm Password",
+        "ALREADY": "You are already Logged In",
+        "USERREQUIRED": "Username is required",
+        "EMAILREQUIRED": "Email is required",
+        "VALIDEMAIL": "Enter a valid email",
+        "PASSWORDREQUIRED": "Password is required",
+        "PASSWORDMIN": "Minimum 6 characters",
+        "CONFIRMREQUIERED": "Confirmation is required",
+        "NOTMATCH": "Passwords do not match"
+    },
+    "CART": {
+        "CART": "Cart",
+        "BACK": "Come Back",
+        "EMPTY": "The cart is empty.",
+        "YOURCART": "Your Cart",
+        "DELONE": "Delete One",
+        "DEL": "Delete"
+    },
+    "CARDS": {
+        "DESCRIPTION": "Description",
+        "RELEASE": "Release Date",
+        "EDIT": "Edit Your Book Settings",
+        "EDITWARN": "Edit only the one you are going to change"
+    }
+}

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Favourites</ion-title>
+    <ion-title>{{'PRODUCTS.FAVORITES' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -25,13 +25,13 @@
         <div class="w-3/5 flex flex-col justify-between p-3">
           <div>
             <h3 class="text-lg font-semibold mb-1 pt-2">{{ product.name }}</h3>
-            <p class="text-sm"><strong>Categoría:</strong> {{ product.category }}</p>
-            <p class="text-sm"><strong>Precio:</strong> {{ product.price | currency }}</p>
+            <p class="text-sm"><strong>{{'PRODUCTS.CATEGORY' | translate}}:</strong> {{ product.category }}</p>
+            <p class="text-sm"><strong>{{'PRODUCTS.PRICE' | translate}}:</strong> {{ product.price | currency }}</p>
           </div>
 
           <div class="pt-4">
             <ion-button expand="block" color="primary" (click)="onClickBuy(product)">
-              Añadir al Carrito
+              {{'PRODUCTS.ADD' | translate}}
             </ion-button>
           </div>
         </div>

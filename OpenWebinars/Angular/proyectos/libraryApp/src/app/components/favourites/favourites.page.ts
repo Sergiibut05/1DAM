@@ -7,13 +7,14 @@ import { Book } from 'src/app/interfaces/book.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.page.html',
   styleUrls: ['./favourites.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonMenuButton, IonButtons, IonButton, IonCard]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonMenuButton, IonButtons, IonButton, IonCard, TranslatePipe]
 })
 export class FavouritesPage implements OnInit {
   public products: any[] = [];

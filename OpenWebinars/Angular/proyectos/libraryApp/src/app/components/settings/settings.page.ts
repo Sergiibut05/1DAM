@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonToggle, IonSelect, IonSelectOption, IonLabel, IonButton} from '@ionic/angular/standalone';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
   styleUrls: ['./settings.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonMenuButton, IonButtons, IonToggle, IonSelect, IonSelectOption, IonLabel, IonButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonMenuButton, IonButtons, IonToggle, IonSelect, IonSelectOption, IonLabel, IonButton, TranslatePipe]
 })
 export class SettingsPage implements OnInit {
   isDarkMode= false;

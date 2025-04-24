@@ -43,6 +43,10 @@ export const routes: Routes = [
   {
     path: 'cart',
     loadComponent: () => import('./components/cart/cart.page').then( m => m.CartPage)
+  },
+  {
+    path: 'publish-book',
+    loadComponent: () => import('./components/publish-book/publish-book.page').then( m => m.PublishBookPage)
   }
 
 ];

@@ -9,13 +9,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { BookCRUD } from 'src/app/services/books.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.page.html',
   styleUrls: ['./cards.page.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule ,IonContent, CommonModule, FormsModule, IonButton, IonImg, IonCard, IonItem, IonLabel, IonSelectOption, IonInput, IonSelect, IonDatetime]
+  imports: [ReactiveFormsModule ,IonContent, CommonModule, FormsModule, IonButton, IonImg, IonCard, IonItem, IonLabel, IonSelectOption, IonInput, IonSelect, IonDatetime, TranslatePipe]
 })
 export class CardsPage implements OnInit{
   public product!: Book;

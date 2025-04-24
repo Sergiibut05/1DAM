@@ -11,6 +11,7 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { appConfig } from './app/app.config';
 
 defineCustomElements(window);
 
@@ -26,6 +27,9 @@ bootstrapApplication(AppComponent, {
     // Proveedores de Firebase para Auth, Firestore, FireStorage
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+
+    // y los de app.config.ts
+    ...appConfig.providers!
   ],
 });

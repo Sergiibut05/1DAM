@@ -7,7 +7,7 @@
 
   <div>
     <ion-button expand="block" color="medium" (click)="onClick()">
-      Volver
+      {{'CART.BACK' | translate}}
     </ion-button>
   </div>
 
@@ -21,23 +21,23 @@
     </ion-img>
     
     <h3 class="mt-4 text-2xl font-semibold text-gray-800">{{ product.name }}</h3>
-    <p class="mt-2 text-gray-600"><strong>Descripción:</strong> {{ product.description }}</p>
-    <p class="mt-2 text-gray-700 font-bold"><strong>Precio:</strong> {{ product.price | currency }}</p>
-    <p class="mt-2 text-gray-500"><strong>Fecha de salida:</strong> {{ product.releaseDate }}</p>
-    <ion-button expand="block" color="primary" class="mt-4" (click)="onClickBuy(product)">Añadir al Carrito</ion-button>
+    <p class="mt-2 text-gray-600"><strong>{{'CARDS.DESCRIPTION' | translate}}:</strong> {{ product.description }}</p>
+    <p class="mt-2 text-gray-700 font-bold"><strong>{{'PRODUCTS.PRICE' | translate}}:</strong> {{ product.price | currency }}</p>
+    <p class="mt-2 text-gray-500"><strong>{{'CARDS.RELEASE' | translate}}:</strong> {{ product.releaseDate }}</p>
+    <ion-button expand="block" color="primary" class="mt-4" (click)="onClickBuy(product)">{{'PRODUCTS.ADD' | translate}}</ion-button>
   </div>
 
   <!-- Modo edición -->
   <div *ngIf="editMode" class="mt-10">
     <div class="flex justify-center pt-20">
-      <p class="font-bold text-2xl">Edit Your Book Settings</p>
+      <p class="font-bold text-2xl">{{'CARDS.EDIT' | translate}}</p>
     </div>
     
     <div class="pb-65">
       <ion-card class="border border-black px-6 py-8 rounded-lg shadow-lg mx-auto max-w-2xl">
         <form [formGroup]="formBook">
           <div>
-            <p class="font-bold pb-2">Edit only the one your are going to change*</p>
+            <p class="font-bold pb-2">{{'CARDS.EDITWARN' | translate}}*</p>
           </div>
 
           <ion-item class="gap-2 pb-4">

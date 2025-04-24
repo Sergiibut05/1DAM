@@ -1,7 +1,7 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonButton, IonCard, Platform, IonNote, IonSelect, IonSelectOption, IonLabel, IonIcon } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonMenuButton, IonButtons, IonButton, IonCard, Platform, IonNote, IonSelect, IonSelectOption, IonLabel, IonIcon, IonSpinner } from '@ionic/angular/standalone';
 import { BookCRUD } from 'src/app/services/books.service';
 import { Book } from 'src/app/interfaces/book.interface';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { addIcons } from 'ionicons';
 import { heart } from 'ionicons/icons';
 import { UserBookLikeService } from 'src/app/services/userBookLike.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,16 +18,22 @@ import { UserBookLikeService } from 'src/app/services/userBookLike.service';
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton, IonButton, IonCard, IonNote, IonSelect, IonSelectOption, IonLabel, IonIcon]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonMenuButton, IonButton, IonCard, IonNote, IonSelect, IonSelectOption, IonLabel, IonIcon, IonSpinner, TranslatePipe]
 })
 export class ProductsPage implements OnInit {
   
   public category = '';
-  protected products: any[] = [];
   public isLoggedIn = false;
   protected userData: any;
   public isMobile = false;
   public likedProducts: any;
+
+  public products: any[] = [];
+  private lastDoc: any = null;
+  private isLoading = false;
+  protected isEnd = false;
+  private limit = 10;
+  isLoadingMore = false;
 
   constructor(
     private bookService: BookCRUD,
@@ -50,8 +57,9 @@ export class ProductsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.loadBooks();
+    this.loadMoreBooks();
     this.likedProducts = this.userBookLike.getAllBooksFromStorage();
+
   }
 
   @HostListener('window:resize', [])
@@ -59,19 +67,48 @@ export class ProductsPage implements OnInit {
     this.checkViewport();
   }
 
+  @ViewChild('contentRef', { static: true }) contentRef!: IonContent;
+
+  onIonScroll(event: any): void {
+    this.contentRef.getScrollElement().then(scrollEl => {
+      const threshold = 100;
+      const scrollPosition = scrollEl.scrollTop + scrollEl.clientHeight;
+      const maxScroll = scrollEl.scrollHeight;
+
+      if (scrollPosition >= maxScroll - threshold) {
+        this.loadMoreBooks();
+      }
+    });
+  }
+
   private checkViewport() {
     this.isMobile = window.innerWidth < 768;
   }
 
-  loadBooks(){
-    this.bookService.getAll().subscribe((data) => {
-      if (this.category) {
-        this.products = data.filter((book) => book.category === this.category);
-      } else {
-        this.products = data;
+  loadMoreBooks() {
+    if (this.isLoadingMore || this.isEnd) return; // Evita cargar si ya está cargando o si ya no hay más productos.
+  
+    this.isLoadingMore = true;
+  
+    this.bookService.getPaginated(this.limit, this.lastDoc, this.category).then(({ books, lastDoc }) => {
+      // Filtrar productos duplicados por ID antes de añadirlos
+      const newBooks = books.filter((book: Book) => 
+        !this.products.some((p: Book) => p.id === book.id)
+      );
+  
+      // Agregar solo los productos nuevos (no duplicados)
+      this.products = [...this.products, ...newBooks];
+      this.lastDoc = lastDoc;
+  
+      // Si no hay más productos, establece isEnd a true
+      if (!this.lastDoc) {
+        this.isEnd = true;  // Indicar que ya no hay más productos que cargar
       }
+  
+      this.isLoadingMore = false;
     });
   }
+  
 
   onClickBuy(product: Book){
     this.authService.user$.subscribe((user) => {
@@ -84,12 +121,15 @@ export class ProductsPage implements OnInit {
   }
 
   onClick(bookid: string){
-    this.router.navigate([`/home/products/cards/${ bookid }`])
+    this.router.navigate([`/cards/${ bookid }`])
   }
 
-  onClickCategory(event: Event){
-    this.category = (event.target as HTMLSelectElement).value
-    this.loadBooks();
+  onClickCategory(event: Event) {
+    this.category = (event.target as HTMLSelectElement).value;
+    this.products = []; 
+    this.lastDoc = null;  
+    this.isEnd = false;   
+    this.loadMoreBooks(); 
   }
 
   async onClickLike(book: Book) {

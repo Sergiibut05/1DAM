@@ -1,0 +1,91 @@
+{
+    "MENU":{
+        "INIT": "Inicio",
+        "LOGIN": "Logueate o Registrate",
+        "PRODUCTS": "Productos",
+        "CART": "Carrito",
+        "FAVORITES": "Favoritos",
+        "YOURBOOKS": "Tus Libros",
+        "SETTINGS": "Ajustes"
+    },
+    "PROFILE":{
+        "PROFILE": "Perfil",
+        "SEEPHOTO": "Ver Foto",
+        "CHANGEPHOTO": "Cambiar Foto",
+        "INFORMATION": "Información de la Cuenta de Usuario"
+    },
+    "PRODUCTS":{
+        "PRODUCTS": "Productos",
+        "FILTER": "Filtro",
+        "SELECT": "Selecciona un a categoría",
+        "FICTION": "Ficción",
+        "FANTASY": "Fantasía",
+        "HISTORY": "Historia",
+        "SELFHELP": "Autoayuda",
+        "ROMANCE": "Romance",
+        "ALL": "Todas",
+        "PRICE": "Precio",
+        "ADD": "Añadir al Carrito",
+        "CATEGORY": "Categoría",
+        "FAVORITES": "Favoritos"
+    },
+    "YOURPRODUCTS":{
+        "YOURPRODUCTS": "Tus Productos",
+        "WANTPUBLISH": "¿Quieres Publicar un Libro?",
+        "CREATE": "Crear",
+        "DELETE": "Eliminar",
+        "EDIT": "Editar"
+    },
+    "SETTINGS":{
+        "SETIINGS": "Ajustes",
+        "THEMES": "Temas",
+        "DARKTHEME": "Tema Oscuro",
+        "MAINCOLOR": "Color Principal",
+        "SELECTCOLOR": "Selecciona un Color",
+        "COLOR": "Color",
+        "BLUE": "Por Defecto(Azul)",
+        "RED": "Rojo",
+        "GREEN": "Verde",
+        "YELLOW": "Amarillo",
+        "PINK": "Rosa",
+        "TEXTSIZE": "Tamaño del Texto",
+        "SIZE": "Tamaño",
+        "SMALL": "Pequeño",
+        "MEDIUM": "Por Defecto(Medio)",
+        "LARGE": "Grande",
+        "XL": "XL",
+        "ACCOUNT": "Ajustes de la Cuenta",
+        "LOGOUT": "Cerrar Sesión" 
+    },
+    "REGISTRATION": {
+        "LOGIN": "Iniciar Sesión",
+        "REGISTER": "Registrarte",
+        "USERNAME": "Nombre de Usuario",
+        "Email": "Email",
+        "PASSWORD": "Contraseña",
+        "REPEATPASSWORD": "Confirmar Constraseña",
+        "ALREADY": "Ya estás Logueado",
+        "USERREQUIRED": "El nombre de Usuario es Obligatorio",
+        "EMAILREQUIRED": "Se Requiere un Email",
+        "VALIDEMAIL": "Introduce un Email Valido",
+        "PASSWORDREQUIRED": "Se Requiere una Contraseña",
+        "PASSWORDMIN": "Mínimo 6 Caracteres",
+        "CORRECTPASSWORD": "Solo letras y números",
+        "CONFIRMREQUIERED": "Se Requiere Confirmación",
+        "NOTMATCH": "Las Contraseñas no Encajan"
+    },
+    "CART": {
+        "CART": "Carrito",
+        "BACK": "Volver Atrás",
+        "EMPTY": "El carrito está vacío.",
+        "YOURCART": "Tu Carrito",
+        "DELONE": "Eliminar Uno",
+        "DEL": "Eliminar"
+    },
+    "CARDS": {
+        "DESCRIPTION": "Descripción",
+        "RELEASE": "Fecha de Salida",
+        "EDIT": "Edita la Configuración de tu Libro",
+        "EDITWARN": "Edita solamente lo que vas a cambiar"
+    }
+}

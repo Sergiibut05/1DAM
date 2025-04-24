@@ -3,22 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Products</ion-title>
+    <ion-title>{{'PRODUCTS.PRODUCTS' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-note>Products</ion-note>
+<ion-content [fullscreen]="true" class="ion-padding" scrollEvents="true" (ionScroll)="onIonScroll($event)" #contentRef>
+  <ion-note>{{'PRODUCTS.PRODUCTS' | translate}}</ion-note>
   <div class="px-6 py-8">
-    <ion-label position="stacked">Filter:</ion-label>
-    <ion-select (ionChange)="onClickCategory($event)" placeholder="Selecciona una categoría">
-        <ion-select-option value="" disabled selected>Selecciona una categoría</ion-select-option>
-        <ion-select-option value="Ficción">Ficción</ion-select-option>
-        <ion-select-option value="Fantasía">Fantasía</ion-select-option>
-        <ion-select-option value="Historia">Historia</ion-select-option>
-        <ion-select-option value="Autoayuda">Autoayuda</ion-select-option>
-        <ion-select-option value="Romance">Romance</ion-select-option>
-        <ion-select-option value="">Todas</ion-select-option>
+    <ion-label position="stacked">{{'PRODUCTS.FILTER' | translate}}:</ion-label>
+    <ion-select (ionChange)="onClickCategory($event)" [placeholder]="'PRODUCTS.SELECT' | translate">
+        <ion-select-option value="" disabled selected>{{'PRODUCTS.SELECT' | translate}}</ion-select-option>
+        <ion-select-option value="Ficción">{{'PRODUCTS.FICTION' | translate}}</ion-select-option>
+        <ion-select-option value="Fantasía">{{'PRODUCTS.FANTASY' | translate}}</ion-select-option>
+        <ion-select-option value="Historia">{{'PRODUCTS.HISTORY' | translate}}</ion-select-option>
+        <ion-select-option value="Autoayuda">{{'PRODUCTS.SELFHELP' | translate}}</ion-select-option>
+        <ion-select-option value="Romance">{{'PRODUCTS.ROMANCE' | translate}}</ion-select-option>
+        <ion-select-option value="">{{'PRODUCTS.ALL' | translate}}</ion-select-option>
     </ion-select>
   </div>
   <!-- Vista móvil -->
@@ -26,7 +26,7 @@
     <div *ngFor="let product of products">
       <ion-card class="flex flex-row border border-gray-300 shadow-md min-h-[180px]">
         
-        <div class="w-2/5 flex items-center justify-center p-4 bg-gray-100">
+        <div class="w-2/5 flex items-center justify-center p-4 bg-gray-100" (click)="onClick(product.id)">
           <img
             [src]="product.photo"
             alt="{{ product.name }}"
@@ -44,13 +44,13 @@
                 </button>
               </div>
             </div>
-            <p class="text-sm white"><strong>Categoría:</strong> {{ product.category }}</p>
-            <p class="text-sm"><strong>Precio:</strong> {{ product.price | currency }}</p>
+            <p class="text-sm white"><strong>{{'PRODUCTS.CATEGORY' | translate}}:</strong> {{ product.category }}</p>
+            <p class="text-sm"><strong>{{'PRODUCTS.PRICE' | translate}}:</strong> {{ product.price | currency }}</p>
           </div>
 
           <div class="pt-4">
             <ion-button expand="block" color="primary" (click)="onClickBuy(product)">
-              Añadir al Carrito
+              {{'PRODUCTS.ADD' | translate}}
             </ion-button>
           </div>
         </div>
@@ -65,7 +65,7 @@
     <div *ngFor="let product of products">
       <div>
         <div (click)="onClick(product.id)">
-          <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]">
+          <div class="h-[450px] w-[300px] fit flex items-center justify-center border border-gray-300 p-[20px]" (click)="onClick(product.id)">
             <img class="rounded-lg shadow-xl transition-transform duration-300 ease-out hover:scale-105"
               [src]="product.photo" alt="{{ product.name }}" />
           </div>
@@ -80,13 +80,19 @@
             </div>
           </div>
           
-          <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+          <p><strong>{{'PRODUCTS.PRICE' | translate}}: </strong>{{ product.price | currency }}</p>
         </div>
         <ion-button
           class="mt-4 w-full transition duration-300 ease-in-out transform hover:scale-105"
-          (click)="onClickBuy(product)">Añadir al Carrito</ion-button>
+          (click)="onClickBuy(product)">{{'PRODUCTS.ADD' | translate}}</ion-button>
       </div>
     </div>
   </div>
-
+  <div *ngIf="isLoadingMore" class="flex flex-col items-center justify-center py-6 animate-fade-in text-center">
+    <ion-spinner name="dots" color="primary" class="mb-2"></ion-spinner>
+    <p class="text-sm text-gray-500">Cargando más productos...</p>
+  </div>
+  <div *ngIf="isEnd" class="flex flex-col items-center justify-center py-6 text-center">
+    <p class="text-sm text-gray-500">Ya no hay más productos para mostrar.</p>
+  </div>
 </ion-content>

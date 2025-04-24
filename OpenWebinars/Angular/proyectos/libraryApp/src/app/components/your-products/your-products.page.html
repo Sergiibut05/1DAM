@@ -3,12 +3,15 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Your Products</ion-title>
+    <ion-title>{{'YOURPRODUCTS.YOURPRODUCTS' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  
+  <div class="flex justify-between pb-8">
+    <ion-text class="" >{{'YOURPRODUCTS.WANTPUBLISH' | translate}}</ion-text>
+    <ion-button (click)="onClickPublish()">Create</ion-button>
+  </div>
 
     <!-- Vista móvil -->
     <div *ngIf="isMobile && products" class="flex flex-col gap-6">
@@ -26,13 +29,13 @@
           <div class="w-3/5 flex flex-col justify-between p-3">
             <div>
               <h3 class="text-lg font-semibold mb-1">{{ product.name }}</h3>
-              <p class="text-sm"><strong>Categoría:</strong> {{ product.category }}</p>
-              <p class="text-sm"><strong>Precio:</strong> {{ product.price | currency }}</p>
+              <p class="text-sm"><strong>{{'PRODUCTS.CATEGORY' | translate}}:</strong> {{ product.category }}</p>
+              <p class="text-sm"><strong>{{'PRODUCTS.PRICE' | translate}}:</strong> {{ product.price | currency }}</p>
             </div>
   
             <div class="flex justify-between">   
-              <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product.id)">Delete</ion-button>
-              <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick(product.id)">Edit</ion-button>
+              <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product.id)">{{'YOURPRODUCTS.DELETE' | translate}}</ion-button>
+              <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick(product.id)">{{'YOURPRODUCTS.EDIT' | translate}}</ion-button>
             </div> 
           </div>
   
@@ -53,11 +56,11 @@
             <div class="h-15">
               <h3 class="text-xl font-semibold max-w-[300px]">{{ product.name }}</h3>
             </div>
-            <p><strong>Precio: </strong>{{ product.price | currency }}</p>
+            <p><strong>{{'PRODUCTS.PRICE' | translate}}: </strong>{{ product.price | currency }}</p>
           </div>
           <div class="flex justify-between">   
-            <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product.id)">Delete</ion-button>
-            <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick(product.id)">Edit</ion-button>
+            <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClickDelete(product.id)">{{'YOURPRODUCTS.DELETE' | translate}}</ion-button>
+            <ion-button class="mt-4 w-[49%] transition duration-300 ease-in-out transform hover:scale-105" (click)="onClick(product.id)">{{'YOURPRODUCTS.EDIT' | translate}}</ion-button>
           </div> 
         </div>
       </div>

@@ -4,7 +4,7 @@
       <ion-buttons slot="start" class="pt-2">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title size="large">Profile</ion-title>
+      <ion-title size="large">{{'PROFILE.PROFILE' | translate}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <div>
@@ -15,11 +15,11 @@
         </div>
       </div>
       <div class="flex flex-col gap-2 pt-6 pl-6">
-        <ion-button (click)="onClickSeePhoto()">Ver Foto</ion-button>
-        <ion-button (click)="createNewProfilePhoto()">Cambiar Foto</ion-button>
+        <ion-button (click)="onClickSeePhoto()">{{'PROFILE.SEEPHOTO' | translate}}</ion-button>
+        <ion-button (click)="createNewProfilePhoto()">{{'PROFILE.CHANGEPHOTO' | translate}}</ion-button>
       </div>
     </div>
-    <p class="text-xl text-center pt-20"><strong>User Account Information</strong></p>
+    <p class="text-xl text-center pt-20"><strong>{{'PROFILE.INFORMATION' | translate}}</strong></p>
     <div class="" *ngIf="userData">
       <p class=""><strong>Username: </strong>{{userData.displayName}}</p>
       <p class=""><strong>Email: </strong>{{userData.email}}</p>
